@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
     belongs_to :supe 
     has_one_attached :post_file 
-    has_many :comments
+    has_many :comments, dependent: :destroy
 
     def has_media?
         self.post_file.attached?

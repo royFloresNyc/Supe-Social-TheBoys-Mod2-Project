@@ -1,13 +1,13 @@
 <p><%= link_to @post.supe.name, supe_path(@post.supe) %></p>
-    <><%= @post.content %></p>
+<%= @post.content %></p>
 
-    <% if @post.has_media? %>
-        <% if @post.has_image? %>
-            <%= image_tag url_for(@post.post_file) %>
-        <% else %>
-            <%= video_tag url_for(@post.post_file), controls: true %>
-        <% end %>
+<% if @post.has_media? %>
+    <% if @post.has_image? %>
+        <%= image_tag url_for(@post.post_file) %>
+    <% else %>
+        <%= video_tag url_for(@post.post_file), controls: true %>
     <% end %>
+<% end %>
 
 <%= form_for @comment do |f| %>
         <%= f.hidden_field :post_id, value: @post.id %>

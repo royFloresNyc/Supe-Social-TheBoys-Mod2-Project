@@ -12,6 +12,7 @@
         <% end %>
     <% end %>
     <br>
+    <%= post.created_at.strftime("%B %d, %Y") %><br>
     <%= post.likes%>
     <%= button_to "Likes", post_path(post), method: :patch, params: {:likes => (post.likes + 1)} %>
 
