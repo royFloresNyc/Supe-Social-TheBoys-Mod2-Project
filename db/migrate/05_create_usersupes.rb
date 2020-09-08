@@ -1,6 +1,6 @@
-class CreateFanSupes < ActiveRecord::Migration[6.0]
+class CreateUsersupes < ActiveRecord::Migration[6.0]
   def change
-    create_table :fan_supes do |t|
+    create_table :usersupes do |t|
       t.integer :user_id
       t.integer :supe_id
 

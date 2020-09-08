@@ -1,2 +1,0 @@
-class FanSupe < ApplicationRecord
-end
