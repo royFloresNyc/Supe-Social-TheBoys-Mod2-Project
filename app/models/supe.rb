@@ -1,0 +1,2 @@
+class Supe < ApplicationRecord
+end

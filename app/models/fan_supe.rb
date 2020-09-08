@@ -1,0 +1,2 @@
+class FanSupe < ApplicationRecord
+end
