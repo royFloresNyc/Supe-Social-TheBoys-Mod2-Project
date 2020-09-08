@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 10) do
+ActiveRecord::Schema.define(version: 11) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 10) do
     t.integer "likes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "supe_id", null: false
+    t.index ["supe_id"], name: "index_posts_on_supe_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -75,9 +77,8 @@ ActiveRecord::Schema.define(version: 10) do
   end
 
   create_table "supes", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
     t.string "name"
+    t.string "password_digest"
     t.text "bio"
     t.string "powers"
     t.string "image_url"
@@ -108,4 +109,5 @@ ActiveRecord::Schema.define(version: 10) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "posts", "supes"
 end

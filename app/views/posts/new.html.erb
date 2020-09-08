@@ -1,0 +1,13 @@
+<%= form_for @post do |f| %>
+    <%= f.label :supe %>
+    <%= f.collection_select :supe_id, Supe.all, :id, :name %><br>
+
+    <%= f.text_area :content %><br>
+
+    <%= f.file_field :post_file %><br>
+
+    <%= f.hidden_field :likes, value: 0 %>
+
+    <%= f.submit "Post" %>
+
+<% end %>
