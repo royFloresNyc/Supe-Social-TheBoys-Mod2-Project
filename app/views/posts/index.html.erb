@@ -1,8 +1,8 @@
 <h1>All Posts</h1>
 
 <% @posts.reverse.each do |post| %>
-    <p><%= link_to post.supe.name, supe_path(post.supe) %></p>
-    <%= post.content %></p>
+    <h3><%= link_to post.supe.name, supe_path(post.supe) %></h3>
+    <p><%= post.content %></p>
 
     <% if post.has_media? %>
         <% if post.has_image? %>
@@ -11,6 +11,11 @@
             <%= video_tag url_for(post.post_file), controls: true %>
         <% end %>
     <% end %>
+    <br>
+    <%= post.likes%>
+    <%= button_to "Likes", post_path(post), method: :patch, params: {:likes => (post.likes + 1)} %>
 
+    <%= post.comments.count %>
+    <%= button_to "Comments", post_path(post), method: :get, action: :show %>
 
 <% end %>

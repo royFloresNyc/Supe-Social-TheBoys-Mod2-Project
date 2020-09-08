@@ -1,0 +1,25 @@
+<p><%= link_to @post.supe.name, supe_path(@post.supe) %></p>
+    <><%= @post.content %></p>
+
+    <% if @post.has_media? %>
+        <% if @post.has_image? %>
+            <%= image_tag url_for(@post.post_file) %>
+        <% else %>
+            <%= video_tag url_for(@post.post_file), controls: true %>
+        <% end %>
+    <% end %>
+
+<%= form_for @comment do |f| %>
+        <%= f.hidden_field :post_id, value: @post.id %>
+        <%= f.label :user_id %>
+        <%= f.number_field :user_id %><br>
+        <%= f.text_area :content %><br>
+        <%= f.submit "Post" %>
+<% end %>
+<br>
+<h4>Comments: </h4>
+<% @post.comments.reverse.each do |comment| %>
+    <p><%= link_to comment.user.username, user_path(comment.user) %></p>
+    <p><%= comment.content %></p>
+    <p><%= comment.created_at.strftime("%B %d, %Y") %></p>
+<% end %>
