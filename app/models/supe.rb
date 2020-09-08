@@ -1,4 +1,13 @@
 class Supe < ApplicationRecord
     has_many :posts, dependent: :destroy
     has_many :events, dependent: :destroy
+
+    validates_presence_of :name, :bio, :powers
+    validates_uniqueness_of :name
+
+
+    has_many :usersupes, dependent: :destroy
+    has_many :users, through: :usersupes, dependent: :destroy
+    has_many :products, dependent: :destroy
+    has_many :events, dependent: :destroy
 end

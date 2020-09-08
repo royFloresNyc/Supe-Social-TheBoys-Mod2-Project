@@ -1,0 +1,21 @@
+<% if flash[:my_errors].any? %>
+    <% flash[:my_errors].each do |msg| %>
+        <%= msg %>
+    <% end %>
+
+
+<% form_for @supe do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :bio %>
+    <%= f.text_area :bio %>
+
+    <%= f.label :powers %>
+    <%= f.text_field :powers %>
+
+    <%= f.label :image_url %>
+    <%= f.string :image_url %>
+
+<%= f.submit_tag %>
