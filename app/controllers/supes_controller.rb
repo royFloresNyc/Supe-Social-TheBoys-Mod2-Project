@@ -1,6 +1,5 @@
 class SupesController < ApplicationController
     before_action :find_supe, only: [:show, :edit, :update, :destroy]
-    # skip_before_action :require_logged_in, only: [:index, :show]
 
     def index
         @supes = Supe.all
@@ -14,15 +13,6 @@ class SupesController < ApplicationController
     end
 
     def create
-        @supe = Supe.create(supe_params)
-        if @supe.valid?
-            @supe.save
-            flash[:success] = "Welcome #{@supe.name}"
-            redirect_to supe_path(@supe)
-        else
-            flash[:my_errors] = @supe.errors.full_messages
-            redirect_to new_supe_path
-        end
     end
 
     def edit
@@ -30,6 +20,7 @@ class SupesController < ApplicationController
 
     def update
         @supe.update(supe_params)
+        authorize @supe
         if @supe.valid?
             flash[:sucess] = "Changes saved!"
             redirect_to supe_path(@supe)
@@ -40,8 +31,6 @@ class SupesController < ApplicationController
     end
 
     def destroy
-        @supe.destroy
-        redirect_to supes_path
     end
 
     private

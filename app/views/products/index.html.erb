@@ -1,0 +1,30 @@
+<h1> Buy stuff from your favorite Hero!</h1>
+
+
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Add to Cart</th>
+    </tr>
+    <%  sorted = Product.product_sort %>
+    <%  sorted.each do |product| %>
+    <tr>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td>$<%= product.price %></td>
+        <td>
+            <%= form_for @cart = Cart.new do |f| %>
+            <%= f.hidden_field :user_id, value: @current_user.id %>
+            <%= f.hidden_field :product_id, value: product.id %>
+            <%= f.submit "Add to Cart" %>
+            <% end %>
+        </td>
+    </tr>
+    <% end %>
+</table>
+
+
+<p><%= button_to "Add New Product", new_product_path, method: :get %></p>

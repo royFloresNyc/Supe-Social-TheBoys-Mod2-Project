@@ -38,7 +38,7 @@ before_action :find_event, only: [:show, :edit, :update]
     private
 
     def event_params
-        params.require(:event).permit(:supe_id, :title, :location, :date, :cost)
+        params.require(:event).permit(:title, :location, :date, :cost, :supe_id)
     end 
 
     def find_event

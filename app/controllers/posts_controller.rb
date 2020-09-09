@@ -13,13 +13,15 @@ class PostsController < ApplicationController
     end 
 
     def create
-        post = Post.create(post_params)
+        @post = Post.create(post_params)
+        authorize @post
         redirect_to posts_path
     end 
 
     def update
-        post = Post.find(params[:id])
-        post.update(likes: params[:likes])
+        @post = Post.find(params[:id])
+        authorize @post
+        @post.update(likes: params[:likes])
         redirect_to posts_path
     end 
 

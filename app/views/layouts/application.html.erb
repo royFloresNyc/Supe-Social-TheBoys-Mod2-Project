@@ -19,6 +19,13 @@
                 user photo here<br><br><br>
                 <h1><%= @current_user.username %></h1>
                 <%= link_to "My Profile", user_path(@current_user) %><br>
+                link to my events here<br><br>
+                <p><%= link_to "Shopping Cart" %></p>
+                <ul>
+                    <% @current_user.carts.each do |cart| %>
+                    <li><%= cart.product.name %><%= button_to "Remove", cart, :method => :delete %></li>
+                    <% end %>
+                </ul>
                 <p><%= button_to "Logout", logout_path, method: :delete %> </p>
             <% end %>
         </div>
@@ -27,7 +34,7 @@
                 <%= button_to "Home", user_home_path, method: :get %>
                 <%= button_to "Posts", posts_path, method: :get %>
                 <%= button_to "The Seven", supes_path, method: :get %>
-                <%= button_to "Merchandise" %>
+                <%= button_to "Merchandise", products_path, method: :get %>
                 <%= button_to "Events", events_path, method: :get %>
             </div>
             <%= yield %>

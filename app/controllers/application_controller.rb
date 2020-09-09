@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-    # include Pundit
-    # rescue_from Pundit::NotAuthorizedError, with: :not_authorized
+    include Pundit
+    rescue_from Pundit::NotAuthorizedError, with: :not_authorized
     protect_from_forgery with: :exception
     before_action :require_logged_in
 
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
     def not_authorized
         flash[:alert] = "Access denied."
-        redirect_to (request.referrer)
+        redirect_back fallback_location: user_home_path
     end
 
     def require_logged_in

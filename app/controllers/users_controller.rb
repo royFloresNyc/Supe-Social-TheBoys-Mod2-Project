@@ -38,17 +38,17 @@ class UsersController < ApplicationController
         @user.update(user_params)
         if @user.valid?
             flash[:sucess] = "Changes saved!"
-            redirect_to user_path(@user)
+            redirect_to user_home_path
         else
             flash[:my_errors] = @user.errors.full_messages
-            redirect_to user_edit_path
+            redirect_to edit_user_path
         end
     end
 
     def destroy 
         @user.destroy 
         redirect_to new_login_path
-    end 
+    end
 
     private
 
