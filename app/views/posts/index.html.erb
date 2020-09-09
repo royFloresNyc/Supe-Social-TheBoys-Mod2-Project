@@ -6,9 +6,9 @@
 
     <% if post.has_media? %>
         <% if post.has_image? %>
-            <%= image_tag url_for(post.post_file) %>
+            <%= image_tag url_for(post.post_file), width: "640", heigh: "auto" %>
         <% else %>
-            <%= video_tag url_for(post.post_file), controls: true %>
+            <%= video_tag url_for(post.post_file), size: "640x360", controls: true %>
         <% end %>
     <% end %>
     <br>

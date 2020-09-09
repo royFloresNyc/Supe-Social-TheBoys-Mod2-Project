@@ -1,10 +1,10 @@
 body {
-    background-image: url("https://www.syfy.com/sites/syfy/files/styles/1200x680_hero/public/2020/08/the-seven-the-boys-season-2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background-image: url("https://www.syfy.com/sites/syfy/files/styles/1200x680_hero/public/2020/08/the-seven-the-boys-season-2.jpg");
+    // background-repeat: no-repeat;
+    // background-size: cover;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 1px
+    grid-gap: 1px;
 }
 
 .login {
@@ -14,4 +14,9 @@ body {
     text-align: center;
     margin-top: auto;
     padding-top: 15px;
+}
+
+html {
+    background: url("https://www.syfy.com/sites/syfy/files/styles/1200x680_hero/public/2020/08/the-seven-the-boys-season-2.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
