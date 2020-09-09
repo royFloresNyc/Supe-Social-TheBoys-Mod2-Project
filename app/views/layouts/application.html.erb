@@ -16,10 +16,9 @@
         </div>
         <div class="left-panel">
             <% if @current_user %>
-                user photo here<br>
-                
+                user photo here<br><br><br>
+                <h1><%= @current_user.username %></h1>
                 <%= link_to "My Profile", user_path(@current_user) %><br>
-                link to my events here<br><br><br>
                 <p><%= button_to "Logout", logout_path, method: :delete %> </p>
             <% end %>
         </div>

@@ -3,3 +3,4 @@
 <p>Date: <%= @event.date.strftime("%B %d, %Y") %></p>
 <p>Location: <%= @event.location %></p>
 <p>Cost: $<%= @event.cost %></p>
+<%= link_to "Edit", edit_event_path(@event) %>

@@ -5,7 +5,7 @@ class UserSupesController < ApplicationController
     end 
 
     def destroy
-        user_supe = UserSupe.find_by(params[:id])
+        user_supe = UserSupe.find(params[:id])
         user_supe.destroy
         redirect_to supes_path
     end 

@@ -13,9 +13,9 @@
                 <%= f.hidden_field :supe_id, value: supe.id %>
                 <%= f.submit "Follow" %>
             <% end %>
-        <%# else %>
-            <%# @user_supe = UserSupe.find_by(supe_id: supe.id, user_id: @current_user.id) %>
-            <%# button_to "Unfollow", user_supe_path, method: :delete, action: :destroy, id: @user_supe.id %>
+        <% else %>
+            <% @user_supe = UserSupe.find_by(supe_id: supe.id, user_id: @current_user.id) %>
+            <%= button_to "Unfollow", @user_supe, :method => :delete %>
         <% end %>
 
     <% end %>

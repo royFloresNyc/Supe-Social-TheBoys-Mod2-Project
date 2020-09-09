@@ -6,4 +6,12 @@
     <p>Date: <%= event.date.strftime("%B %d, %Y") %></p>
     <p>Location: <%= event.location %></p>
     <p>Cost: $<%= event.cost %></p>
+
+    <% if !@current_user.attending?(event) %>
+            <%= form_for @user_event = UserEvent.new do |f| %>
+                <%= f.hidden_field :user_id, value: @current_user.id %>
+                <%= f.hidden_field :event_id, value: event.id %>
+                <%= f.submit "Add" %>
+            <% end %>
+    <% end %>
 <% end %>

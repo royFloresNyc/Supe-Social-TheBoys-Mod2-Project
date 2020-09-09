@@ -1,1 +1,20 @@
-<h1>User home page</h1>
+ <% @current_user.feed.each do |post| %>
+     <h3><%= link_to post.supe.name, supe_path(post.supe) %></h3>
+    <p><%= post.content %></p>
+
+    <% if post.has_media? %>
+        <% if post.has_image? %>
+            <%= image_tag url_for(post.post_file), width: "640", heigh: "auto" %>
+        <% else %>
+            <%= video_tag url_for(post.post_file), size: "640x360", controls: true %>
+        <% end %>
+    <% end %>
+    <br>
+    <%= post.created_at.strftime("%B %d, %Y") %><br>
+    <%= post.likes%>
+    <%= button_to "Likes", post_path(post), method: :patch, params: {:likes => (post.likes + 1)} %>
+
+    <%= post.comments.count %>
+    <%= button_to "Comments", post_path(post), method: :get, action: :show %>
+
+<% end %>

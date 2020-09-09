@@ -3,6 +3,8 @@ class User < ApplicationRecord
     has_many :comments, dependent: :destroy
     has_many :user_supes
     has_many :supes, through: :user_supes
+    has_many :user_events, dependent: :destroy 
+    has_many :events, through: :user_events
 
 
     validates_presence_of :username, :password
@@ -11,4 +13,12 @@ class User < ApplicationRecord
     def following?(supe)
         self.supes.include?(supe)
     end
+
+    def attending?(event)
+        self.events.include?(event)
+    end 
+
+    def feed
+        Post.all.filter {|post| self.supes.include?(post.supe)}.reverse
+    end 
 end
