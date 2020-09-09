@@ -10,11 +10,10 @@
 <% end %>
 
 <%= form_for @comment do |f| %>
-        <%= f.hidden_field :post_id, value: @post.id %>
-        <%= f.label :user_id %>
-        <%= f.number_field :user_id %><br>
-        <%= f.text_area :content %><br>
-        <%= f.submit "Post" %>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.hidden_field :user_id, value: @current_user.id %><br>
+    <%= f.text_area :content %><br>
+    <%= f.submit "Post" %>
 <% end %>
 <br>
 <h4>Comments: </h4>

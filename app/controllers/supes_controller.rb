@@ -1,6 +1,6 @@
 class SupesController < ApplicationController
     before_action :find_supe, only: [:show, :edit, :update, :destroy]
-    skipe_before_action :require_logged_in [:index, :show]
+    skip_before_action :require_logged_in [:index, :show]
 
     def index
         @supes = Supe.all

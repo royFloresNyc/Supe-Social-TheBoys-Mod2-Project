@@ -1,14 +1,16 @@
-<h1>Login</h1>
+<%= stylesheet_link_tag "login" %>
+<div class="login" >
+    <%= form_for :session, url: login_path do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.submit "Log In" %>
+    <% end %>
+    
+    <p>New User? <%= link_to 'Register Here', new_user_path %></p>
+</div>
 
 
-<%= form_for :session, url: login_path do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "Log In" %>
-<% end %>
-
-<p>New User? <%= link_to 'Register Here', new_user_path %></p>
