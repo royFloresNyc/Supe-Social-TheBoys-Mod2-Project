@@ -16,16 +16,18 @@
         </div>
         <div class="left-panel">
             user photo here<br>
-            user info here<br>
-            user events here<br>
+            <h1> Current_User <%= @current_user.username %></h1>
+            <%= link_to "My Profile", user_path(@current_user) %><br>
+            link to my events here<br><br><br>
             <p><%= button_to "Logout", logout_path, method: :delete %> </p>
         </div>
         <div class="main-panel">
             <div class="nav">
-                <%= link_to "The Seven" %>
-                <%= link_to "Posts", posts_path %>
-                <%= link_to "Merchandise" %>
-                <%= link_to "Events", events_path %>
+                <%= button_to "Home", user_home_path, method: :get %>
+                <%= button_to "Posts", posts_path, method: :get %>
+                <%= button_to "The Seven" %>
+                <%= button_to "Merchandise" %>
+                <%= button_to "Events", events_path, method: :get %>
             </div>
             <%= yield %>
         </div>
