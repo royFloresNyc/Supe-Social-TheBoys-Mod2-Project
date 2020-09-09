@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Supe.destroy_all
 
 the_seven = [
     { 
@@ -52,3 +54,7 @@ the_seven = [
     }
 ]
 the_seven.each { |supe| Supe.create(supe) }
+
+
+User.create(username: "Russell", password: "1234", role: 1)
+User.create(username: "Nancy", password: "1234")

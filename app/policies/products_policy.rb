@@ -1,4 +1,4 @@
-class EventsPolicy < ApplicationPolicy
+class PostsPolicy < ApplicationPolicy
     attr_reader :user, :record
   
     def initialize(user, record)
@@ -7,15 +7,15 @@ class EventsPolicy < ApplicationPolicy
     end
   
     def index?
-      false
+
     end
   
     def show?
-      false
+
     end
   
     def create?
-        user.role == 'admin' || record.user == user
+      user.role == 'admin' || record.user == user
     end
   
     def new?
@@ -23,7 +23,7 @@ class EventsPolicy < ApplicationPolicy
     end
   
     def update?
-        user.role == 'admin' || record.user == user
+      user.role == 'admin' || record.user == user
     end
   
     def edit?
@@ -31,7 +31,7 @@ class EventsPolicy < ApplicationPolicy
     end
   
     def destroy?
-        user.role == 'admin' || record.user == user
+      user.role == 'admin' || record.user == user
     end
   
     class Scope
@@ -43,9 +43,7 @@ class EventsPolicy < ApplicationPolicy
       end
   
       def resolve
-        if user.admin?
-            scope.all
-        end
+        scope.all
       end
     end
   end
