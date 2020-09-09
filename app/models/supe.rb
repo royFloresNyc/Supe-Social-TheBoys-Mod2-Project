@@ -6,7 +6,7 @@ class Supe < ApplicationRecord
     validates_uniqueness_of :name
 
 
-    has_many :usersupes, dependent: :destroy
+    has_many :user_supes, dependent: :destroy
     has_many :users, through: :usersupes, dependent: :destroy
     has_many :products, dependent: :destroy
     has_many :events, dependent: :destroy

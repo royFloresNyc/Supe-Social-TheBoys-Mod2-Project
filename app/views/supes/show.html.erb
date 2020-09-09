@@ -1,1 +1,12 @@
 <h1> <%= @supe.name %> </h1>
+<%= image_tag @supe.image_url, width: "600", heigh: "auto"  %><br>
+<%= @supe.bio %><br>
+<p><strong>Powers: </strong><%= @supe.powers %></p>
+
+<% if !@current_user.following?(@supe) %>
+    <%= form_for @user_supe = UserSupe.new do |f| %>
+        <%= f.hidden_field :user_id, value: @current_user.id %>
+        <%= f.hidden_field :supe_id, value: @supe.id %>
+        <%= f.submit "Follow" %>
+    <% end %>
+<% end %>
