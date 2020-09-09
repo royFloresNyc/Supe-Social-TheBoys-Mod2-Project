@@ -2,6 +2,6 @@
 
     <ul>
     <% @supes.each do |supe| %>
-        <li><%= supe %></li>
+        <li><%= link_to supe.name, supe_path(supe) %></li>
     <% end %>
     <ul>

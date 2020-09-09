@@ -15,17 +15,19 @@
             
         </div>
         <div class="left-panel">
-            user photo here<br>
-            <h1> Current_User <%= @current_user.username %></h1>
-            <%= link_to "My Profile", user_path(@current_user) %><br>
-            link to my events here<br><br><br>
-            <p><%= button_to "Logout", logout_path, method: :delete %> </p>
+            <% if @current_user %>
+                user photo here<br>
+                
+                <%= link_to "My Profile", user_path(@current_user) %><br>
+                link to my events here<br><br><br>
+                <p><%= button_to "Logout", logout_path, method: :delete %> </p>
+            <% end %>
         </div>
         <div class="main-panel">
             <div class="nav">
                 <%= button_to "Home", user_home_path, method: :get %>
                 <%= button_to "Posts", posts_path, method: :get %>
-                <%= button_to "The Seven" %>
+                <%= button_to "The Seven", supes_path, method: :get %>
                 <%= button_to "Merchandise" %>
                 <%= button_to "Events", events_path, method: :get %>
             </div>
