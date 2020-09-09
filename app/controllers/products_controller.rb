@@ -38,6 +38,11 @@ class ProductsController < ApplicationController
         end
     end
 
+    def add
+        cart << params[:product]
+        render :index
+      end
+
     def destroy
 
     private
@@ -49,6 +54,4 @@ class ProductsController < ApplicationController
     def find_product
         @product = product.find(params[:id])
     end
-
-    
 end

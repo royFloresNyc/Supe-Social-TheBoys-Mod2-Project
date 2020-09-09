@@ -1,0 +1,17 @@
+<h1> Edit Product </h1>
+
+
+<%= form_for @product do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+
+    <%= f.label :price %>
+    <%= f.number_field :name %>
+
+    <%= f.collection_select :super_id, Supe.all, :id, :name %>
+
+    <%= f.submit "Add Product" %>
+<% end %>

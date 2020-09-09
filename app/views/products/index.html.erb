@@ -1,0 +1,36 @@
+<h1> Buy stuff from your favorite Hero!</h1>
+
+
+<%  Product.sort_by_hero.each do |product| %>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Add to Cart</th>
+    </tr>
+    <tr>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td><%= button_to %></td>
+    </tr>
+</table>
+
+
+
+<%= form_tag ({controller: 'products',
+    action: 'add',
+    method: 'post'}) do %>
+
+  <input name=product>
+  <input type=submit value='add to cart'>
+<% end %>
+
+
+<h3>Your Cart</h3>
+<ul>  
+  <%= cart.each do |product| %>
+    <li><%= product %></li>
+  <% end %>
+</ul>

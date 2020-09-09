@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, :supes, :products, :posts, :events, :comments, :sessions
 
+  get '/home', to: 'users#home', as: 'user_home'
   post '/comments', to: 'comments#create'
   get '/login', to: 'sessions#new', as: 'new_login'
   post '/login', to: 'sessions#create', as: 'login'

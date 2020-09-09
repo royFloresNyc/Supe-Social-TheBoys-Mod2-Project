@@ -6,4 +6,9 @@ class Product < ApplicationRecord
     belongs_to :supe
     has_many :carts
     has_many :users, through: :cart
+
+
+    def sort_by_hero
+        Product.all.sort_by { |product| product.supe }
+    end
 end

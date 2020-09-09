@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    # include Pundit
+    include Pundit
     # rescue_from Pundit::NotAuthorizedError, with: :not_authorized
     protect_from_forgery with: :exception
     before_action :require_logged_in
@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
     def current_user
         @current_user = User.find_by(id: session[:user_id])
+    end
+
+    def cart
+        session[:cart] ||= []
     end
 
     private
