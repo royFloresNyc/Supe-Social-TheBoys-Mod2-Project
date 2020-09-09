@@ -1,4 +1,42 @@
-<h3> User Show <%= @user.username %> </h3>
+<h1> <%= @user.username %>'s Profile Page </h1>
 
+
+<h2> Favorite Supes </h2>
+
+    <% if @user.supes.any? %>
+        <ul>
+        <% @user.supes.each do |supe| %>
+            <li><%= supe.name %> </li>
+            <% end %>
+        </ul>
+        <% else %>
+            <p> <%= @user.username %> hasn't favorited any Supes yet! Click "The Seven Tab" to favorite a Supe! </p>
+        <% end %>
+
+<h2> Upcoming Events for <%= @user.username %> </h2>
+
+    <% if @user.events.any? %>
+    <ul>
+        <% @user.events.each do |event| %>
+        <li><%= event.title %> at <%= event.timedate %> in <%= event.location %></li>
+        <% end %>
+    </ul>
+    <% else %>
+        <p><%= @user.username %> hasn't signed up for any events yet!  Go to the events page to see listed events! </p>
+    <% end %>
+
+<h2> Recent comments by <%= @user.username %></h2>
+
+    <% if @user.comments.any? %>
+        <ul>
+            <%  @user.recent_comments.each do |comment| %>
+            <li> <%= comment.content %><%= button_to 'View Post', post_path(comment.post) %> </li>
+            <% end %>
+        </ul>
+    <% else %>
+        <p><%= @user.username %> hasn't made any comments yet! </p>
+    <% end %>
+
+        
 
 <p><%= button_to "Logout", logout_path, method: :delete %> </p>

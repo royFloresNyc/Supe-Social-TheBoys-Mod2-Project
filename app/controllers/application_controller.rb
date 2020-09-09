@@ -1,16 +1,25 @@
 class ApplicationController < ActionController::Base
     include Pundit
-    # rescue_from Pundit::NotAuthorizedError, with: :not_authorized
+    rescue_from Pundit::NotAuthorizedError, with: :not_authorized
     protect_from_forgery with: :exception
-    before_action :require_logged_in
+    before_action :require_logged_in, :current_cart
 
 
     def current_user
         @current_user = User.find_by(id: session[:user_id])
     end
 
-    def cart
-        session[:cart] ||= []
+    def current_cart
+        if require_logged_in
+            @current_cart = @current_user.cart
+        else
+            if session[:cart]
+                @cart = Cart.find_by(id: session[:cart_id])
+            else
+                @cart = Cart.create
+                session[:cart] = @cart.id
+            end
+        end
     end
 
     private

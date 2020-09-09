@@ -23,6 +23,8 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         if @user.valid?
             session[:user_id] = @user.id
+            @cart = Cart.new(user_id: @user.id)
+            session[:cart_id] = @cart.id
             flash[:success] = "Welcome, #{@user.username}"
             redirect_to user_path(@user)
         else

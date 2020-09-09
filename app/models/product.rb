@@ -4,11 +4,11 @@ class Product < ApplicationRecord
     validates_numericality_of :price
 
     belongs_to :supe
-    has_many :carts
-    has_many :users, through: :cart
+    has_many :products_carts
+    has_many :carts, through: :products_carts
 
 
-    def sort_by_hero
+    def self.hero_sort
         Product.all.sort_by { |product| product.supe }
     end
 end

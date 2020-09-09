@@ -14,9 +14,10 @@ class ProductsController < ApplicationController
 
     def create
         @product = Product.create(product_params)
+        authorize @product
         if @product.valid?
             @product.save
-            flash[:success] = "Welcome #{@product.name}"
+            flash[:success] = "Added #{@product.name} to the store!"
             redirect_to product_path(@product)
         else
             flash[:my_errors] = @product.errors.full_messages
@@ -29,6 +30,7 @@ class ProductsController < ApplicationController
 
     def update
         @product.update(product_params)
+        authorize @product
         if @product.valid?
             flash[:sucess] = "Changes saved!"
             redirect_to product_path(@product)
@@ -38,12 +40,10 @@ class ProductsController < ApplicationController
         end
     end
 
-    def add
-        cart << params[:product]
-        render :index
-      end
-
     def destroy
+        @product.destroy
+        authorize @product
+    end
 
     private
 
@@ -52,6 +52,6 @@ class ProductsController < ApplicationController
     end
 
     def find_product
-        @product = product.find(params[:id])
+        @product = Product.find(params[:id])
     end
 end

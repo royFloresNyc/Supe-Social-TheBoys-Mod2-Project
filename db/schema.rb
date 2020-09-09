@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 12) do
+ActiveRecord::Schema.define(version: 13) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 12) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "product_id"
+    t.integer "products_carts_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -76,6 +76,13 @@ ActiveRecord::Schema.define(version: 12) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "products_carts", force: :cascade do |t|
+    t.integer "cart_id"
+    t.integer "product_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "supes", force: :cascade do |t|
     t.string "name"
     t.text "bio"
@@ -92,19 +99,19 @@ ActiveRecord::Schema.define(version: 12) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_supes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "supe_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "role"
-  end
-
-  create_table "usersupes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "supe_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

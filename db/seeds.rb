@@ -8,6 +8,11 @@
 
 User.destroy_all
 Supe.destroy_all
+Post.destroy_all
+Event.destroy_all
+Product.destroy_all
+Comment.destroy_all
+
 
 the_seven = [
     { 

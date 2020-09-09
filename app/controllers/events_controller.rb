@@ -9,6 +9,7 @@ class EventsController < ApplicationController
 
     def create
         event = Event.create(event_params)
+        authorize event
         redirect_to event_path(event)
     end 
 
@@ -19,7 +20,7 @@ class EventsController < ApplicationController
     private
 
     def event_params
-        params.require(:event).permit(:supe_id, :title, :location, :date, :cost)
+        params.require(:event).permit(:title, :location, :date, :cost, :supe_id)
     end 
 
 end
