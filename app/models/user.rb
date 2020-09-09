@@ -28,7 +28,6 @@ class User < ApplicationRecord
     def feed
         Post.all.filter {|post| self.supes.include?(post.supe)}.reverse
     end 
-end
 
   enum role: [:member, :admin]
 
@@ -37,10 +36,6 @@ end
       self.role ||= :member
     end
   end
-
-
-
-
 
   def self.cart
     self.carts.each do |product|
