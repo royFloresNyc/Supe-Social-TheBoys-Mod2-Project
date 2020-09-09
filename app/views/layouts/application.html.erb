@@ -19,7 +19,13 @@
                 user photo here<br>
                 
                 <%= link_to "My Profile", user_path(@current_user) %><br>
-                link to my events here<br><br><br>
+                link to my events here<br><br>
+                <p><%= link_to "Shopping Cart" %></p>
+                <ul>
+                    <% @current_user.carts.each do |cart| %>
+                    <li><%= cart.product.name %><%= button_to "Remove", cart, :method => :delete %></li>
+                    <% end %>
+                </ul>
                 <p><%= button_to "Logout", logout_path, method: :delete %> </p>
             <% end %>
         </div>

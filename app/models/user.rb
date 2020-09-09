@@ -4,7 +4,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :user_supes, dependent: :destroy
   has_many :supes, through: :user_supes
-  has_one :cart
+  has_many :carts
+  has_many :products, through: :carts
   has_many :user_events, dependent: :destroy
   has_many :events, through: :user_events
 
@@ -13,11 +14,16 @@ class User < ApplicationRecord
 
 
   enum role: [:member, :admin]
+
   after_initialize do
     if self.new_record?
       self.role ||= :member
     end
   end
+
+
+
+
 
   def self.cart
     self.carts.each do |product|

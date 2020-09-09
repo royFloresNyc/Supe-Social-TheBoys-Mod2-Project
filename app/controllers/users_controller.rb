@@ -23,8 +23,6 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         if @user.valid?
             session[:user_id] = @user.id
-            @cart = Cart.new(user_id: @user.id)
-            session[:cart_id] = @cart.id
             flash[:success] = "Welcome, #{@user.username}"
             redirect_to user_path(@user)
         else
@@ -40,10 +38,10 @@ class UsersController < ApplicationController
         @user.update(user_params)
         if @user.valid?
             flash[:sucess] = "Changes saved!"
-            redirect_to user_path(@user)
+            redirect_to user_home_path
         else
             flash[:my_errors] = @user.errors.full_messages
-            redirect_to user_edit_path
+            redirect_to edit_user_path
         end
     end
 

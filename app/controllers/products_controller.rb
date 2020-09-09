@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
         if @product.valid?
             @product.save
             flash[:success] = "Added #{@product.name} to the store!"
-            redirect_to product_path(@product)
+            redirect_to products_path
         else
             flash[:my_errors] = @product.errors.full_messages
             redirect_to new_product_path
@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
         authorize @product
         if @product.valid?
             flash[:sucess] = "Changes saved!"
-            redirect_to product_path(@product)
+            redirect_to products_path
         else
             flash[:my_errors] = @product.errors.full_messages
             redirect_to edit_product_path(@product)
@@ -48,7 +48,7 @@ class ProductsController < ApplicationController
     private
 
     def product_params
-        params.require(:product).permit(:name, :description, :price, :supe_id)
+        params.require(:product).permit(:name, :description, :price)
     end
 
     def find_product

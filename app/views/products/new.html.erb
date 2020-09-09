@@ -9,9 +9,7 @@
     <%= f.text_area :description %>
 
     <%= f.label :price %>
-    <%= f.number_field :name %>
-
-    <%= f.collection_select :super_id, Supe.all, :id, :name %>
+    <%= f.number_field :price %>
 
     <%= f.submit "Add Product" %>
 <% end %>

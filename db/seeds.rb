@@ -8,10 +8,11 @@
 
 User.destroy_all
 Supe.destroy_all
+Product.destroy_all
+Cart.destroy_all
+Comment.destroy_all
 Post.destroy_all
 Event.destroy_all
-Product.destroy_all
-Comment.destroy_all
 
 
 the_seven = [
@@ -61,5 +62,15 @@ the_seven = [
 the_seven.each { |supe| Supe.create(supe) }
 
 
-User.create(username: "Russell", password: "1234", role: 1)
-User.create(username: "Nancy", password: "1234")
+russ = User.create(username: "Russell", password: "1234", role: 1)
+nancy = User.create(username: "Nancy", password: "1234")
+
+p1 = Product.create!(name: "soysauce", description: "condiment", price: 2)
+p2 = Product.create!(name: "makeup", description: "makeup", price: 4)
+p3 = Product.create!(name: "toy", description: "toy", price: 5)
+
+Cart.create!(user_id: russ.id, product_id: p1.id)
+Cart.create!(user_id: russ.id, product_id: p2.id)
+Cart.create!(user_id: russ.id, product_id: p3.id)
+Cart.create!(user_id: nancy.id, product_id: p1.id)
+Cart.create!(user_id: nancy.id, product_id: p3.id)
