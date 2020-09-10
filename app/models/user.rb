@@ -37,12 +37,6 @@ class User < ApplicationRecord
     end
   end
 
-  def self.cart
-    self.carts.each do |product|
-        product
-    end
-  end
-
   def recent_comments
     recent_comments = self.comments.sort_by { |comment| comment.created_at }.reverse
     recent_comments.first(3)

@@ -1,3 +1,43 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.products-index-name {
+    text-align: center;
+    text-decoration: underline;
+    
+}
+
+.merchandise-page {
+    th {
+        text-align: center;
+        text-decoration: underline;
+    }
+    td {
+        border-bottom: 2px solid #c9c9c9;
+        padding: 5px;
+        text-align: left;
+      }
+}
+
+#product-name {
+    font-weight: bold;
+}
+
+
+#price {
+    text-align: center;
+}
+
+
+.add-product-to-store {
+    display: block;
+    height: 33px;
+    line-height: 40px;
+    padding: 0px 30px;
+    background-color: lightgray;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

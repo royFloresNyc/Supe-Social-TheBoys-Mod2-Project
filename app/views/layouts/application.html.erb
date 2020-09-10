@@ -7,12 +7,12 @@
 
         <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     </head>
 
     <body>
         <div class="banner">
-            Banner here
-            
+            <img src="https://miro.medium.com/max/3840/1*EJjUIFJK_fEdDZTODOnCLA.jpeg" class="banner-img">
         </div>
         <div class="left-panel">
             <% if @current_user %>
@@ -27,12 +27,6 @@
                         <li><%= link_to "Create Event", new_event_path %></li>
                         <li><%= link_to "List Product", new_product_path %></li>
                     </ul>
-                <% else %>
-                    <ul>
-                        <% @current_user.carts.each do |cart| %>
-                        <li><%= cart.product.name %><%= button_to "Remove", cart, :method => :delete %></li>
-                        <% end %>
-                    </ul>
                 <% end %>
                 <ul class="user-nav">
                     <li><%= link_to "Logout", logout_path, method: :delete %></li>
@@ -45,7 +39,7 @@
                 <li><%= link_to "The Seven", supes_path %></li>
                 <li><%= link_to "Merchandise", products_path %></li>
                 <li><%= link_to "Events", events_path %></li>
-                <li><%= link_to "My Cart"%>
+                <li><%= link_to "My Cart", user_cart_path %></li>
             </ul>
             <div class="content-wrapper">
                 <%= yield %>

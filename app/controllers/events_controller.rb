@@ -8,6 +8,7 @@ after_action :verify_authorized, only: [:new, :create, :edit, :destroy]
 
     def new
         @event = Event.new
+        authorize @event
     end 
 
     def create

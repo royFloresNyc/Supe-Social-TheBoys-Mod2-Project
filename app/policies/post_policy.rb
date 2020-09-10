@@ -1,7 +1,3 @@
-
-
-
-
 class PostPolicy
   
   attr_reader :current_user, :post

@@ -1,10 +1,10 @@
 class EventPolicy
   
-  attr_reader :current_user, :supe
+  attr_reader :current_user, :event
 
-  def initialize(current_user, supe)
+  def initialize(current_user, event)
     @current_user = current_user
-    @supe = supe
+    @event = event
   end
 
   def new?

@@ -1,15 +1,20 @@
 <h1>Add a New Product to the Store!</h1>
 
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <p><%= error %></p>
+    <% end %>
+<% end %>
 
 <%= form_for @product do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><br>
 
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description %><br>
 
     <%= f.label :price %>
-    <%= f.number_field :price %>
+    <%= f.number_field :price %><br>
 
     <%= f.submit "Add Product" %>
 <% end %>

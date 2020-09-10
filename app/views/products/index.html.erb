@@ -1,5 +1,5 @@
-<h1> Buy stuff from your favorite Hero!</h1>
-<table>
+<h1 class="products-index-name"> Buy Stuff from your favorite Hero!</h1>
+<table class="merchandise-page">
     <tr>
         <th>Name</th>
         <th>Description</th>
@@ -9,9 +9,9 @@
     <%  sorted = Product.product_sort %>
     <%  sorted.each do |product| %>
     <tr>
-        <td><%= product.name %></td>
+        <td id="product-name"><%= product.name %></td>
         <td><%= product.description %></td>
-        <td>$<%= product.price %></td>
+        <td id="price">$<%= product.price %></td>
         <td>
             <%= form_for @cart = Cart.new do |f| %>
             <%= f.hidden_field :user_id, value: @current_user.id %>
@@ -22,7 +22,6 @@
     </tr>
     <% end %>
 </table>
-
     <% if policy(:product).new?%>
-    <p><%= button_to "Add New Product", new_product_path, method: :get %></p>
+    <p class="add-product-to-store"><%= link_to "Add New Product to Store", new_product_path, method: :get %></p>
     <% end %>
