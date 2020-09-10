@@ -22,7 +22,7 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
         authorize @post
         @post.update(likes: params[:likes])
-        redirect_to posts_path
+        redirect_back fallback_location: user_home_path
     end 
 
     private
