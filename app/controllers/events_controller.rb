@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
 before_action :find_event, only: [:show, :edit, :update]
+after_action :verify_authorized, only: [:new, :create, :edit, :destroy]
 
     def index
         @events = Event.all 
@@ -11,6 +12,7 @@ before_action :find_event, only: [:show, :edit, :update]
 
     def create
         event = Event.create(event_params)
+        authorize event
         if event.valid?
             redirect_to event_path(event)
         else  
@@ -24,6 +26,7 @@ before_action :find_event, only: [:show, :edit, :update]
 
     def update
         @event.update(event_params)
+        authorize @event
         if @event.valid?
             redirect_to event_path(@event)
         else  

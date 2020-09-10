@@ -1,26 +1,33 @@
-class PostPolicy < ApplicationPolicy
+
+
+
+
+class PostPolicy
+  
+  attr_reader :current_user, :post
+
+  def initialize(current_user, post)
+    @current_user = current_user
+    @post = post
+  end
+
+  def new?
+    @current_user.role == 'admin'
+  end
 
   def create?
-    user.role == 'admin' || record.user == user
-  end 
-  
-  def new?
-    create?
+    @current_user.role == 'admin'
   end
-  
+
   def update?
-    user.role == 'admin' || record.user == user
-  end 
+    @current_user.role == 'admin'
+  end
 
   def edit?
-    update?
-  end 
+    @current_user.role == 'admin'
+  end
 
   def destroy?
-    user.role == 'admin' || record.user == user
+    @current_user.role == 'admin'
   end
 end
-
-
-
-

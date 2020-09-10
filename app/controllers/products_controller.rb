@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
     before_action :find_product, only: [:show, :edit, :update, :destroy]
+    after_action :verify_authorized, only: [:new, :create, :edit, :destroy]
 
     def index
         @products = Product.all
@@ -10,6 +11,7 @@ class ProductsController < ApplicationController
 
     def new
         @product = Product.new
+        authorize @product
     end
 
     def create
