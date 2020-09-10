@@ -18,31 +18,35 @@
             <% if @current_user %>
                 user photo here<br><br><br>
                 <h1><%= @current_user.username %></h1>
-                <%= link_to "My Profile", user_path(@current_user) %><br>
-
+                <ul class="user-nav">
+                    <li><%= link_to "My Profile", user_path(@current_user) %></li>
+                </ul>
                 <% if @current_user.role == "admin" %>
-                    <%= button_to "Create Post", new_post_path, method: :get %><br>
-                    <%= button_to "Create Event", new_event_path, method: :get %><br>
-                    <%= button_to "List Product", new_product_path, method: :get %><br>
+                    <ul class="user-nav">
+                        <li><%= link_to "Create Post", new_post_path %></li>
+                        <li><%= link_to "Create Event", new_event_path %></li>
+                        <li><%= link_to "List Product", new_product_path %></li>
+                    </ul>
                 <% else %>
-                    <p><%= link_to "Shopping Cart" %></p>
                     <ul>
                         <% @current_user.carts.each do |cart| %>
                         <li><%= cart.product.name %><%= button_to "Remove", cart, :method => :delete %></li>
                         <% end %>
                     </ul>
                 <% end %>
-                <%= button_to "Logout", logout_path, method: :delete %>
+                <ul class="user-nav">
+                    <li><%= link_to "Logout", logout_path, method: :delete %></li>
+                </ul>
             <% end %>
         </div>
         <div class="main-panel">
-            <div class="nav">
-                <%= button_to "Home", user_home_path, method: :get %>
-                <%= button_to "Posts", posts_path, method: :get %>
-                <%= button_to "The Seven", supes_path, method: :get %>
-                <%= button_to "Merchandise", products_path, method: :get %>
-                <%= button_to "Events", events_path, method: :get %>
-            </div>
+            <ul class="nav">
+                <li><%= link_to "Home", user_home_path%></li>
+                <li><%= link_to "Posts", posts_path %></li>
+                <li><%= link_to "The Seven", supes_path %></li>
+                <li><%= link_to "Merchandise", products_path %></li>
+                <li><%= link_to "Events", events_path %></li>
+            </ul>
             <div class="content-wrapper">
                 <%= yield %>
             </div>

@@ -48,3 +48,48 @@
      overflow: scroll;
  }
 
+ ul.nav {
+    height: 40px;
+    margin-bottom: 0px;
+    padding-bottom: 5px;
+    border-bottom: 0.5px solid black;
+
+   }
+   
+   ul.nav li {
+    line-height: 40px;
+    display: inline-block;
+    padding: 0px 20px;
+    background-color: lightgray;
+    border-top-right-radius: 10px;
+    margin-left: -40px;
+    margin-right: 38px;
+  }
+ 
+  ul.nav li:hover {
+   background-color: white;
+   transition: 0.5s;
+  }
+
+  ul.user-nav li {
+    display: block;
+    height: 33px;
+    line-height: 40px;
+    padding: 0px 30px;
+    background-color: lightgray;
+    border-radius: 5px;
+    margin-top: 4px;
+    margin-left: -16px;
+    margin-right: 26px;
+    text-align: center;
+  }
+  ul.user-nav li:hover {
+    background-color: white;
+    transition: 0.5s;
+   }
+ 
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
