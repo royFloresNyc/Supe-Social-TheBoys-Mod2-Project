@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
+    after_action :verify_authorized, only: [:new, :create, :edit, :destroy]
+
+    
     def index
         @posts = Post.all
     end 
 
     def new
         @post = Post.new
+        authorize @post
     end 
 
     def show

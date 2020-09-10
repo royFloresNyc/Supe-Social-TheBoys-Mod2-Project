@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     def home
         @posts = Post.all
-    end 
+    end
 
     def show
         @user = User.find(params[:id])
@@ -44,6 +44,11 @@ class UsersController < ApplicationController
             redirect_to edit_user_path
         end
     end
+
+    def cart
+        cart = @user.carts
+    end
+    
 
     def destroy 
         @user.destroy 

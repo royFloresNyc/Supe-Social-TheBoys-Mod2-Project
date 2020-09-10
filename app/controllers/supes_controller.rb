@@ -1,5 +1,6 @@
 class SupesController < ApplicationController
     before_action :find_supe, only: [:show, :edit, :update, :destroy]
+    after_action :verify_authorized, only: [:new, :create, :edit, :destroy]
 
     def index
         @supes = Supe.all

@@ -1,24 +1,30 @@
-class EventPolicy < ApplicationPolicy
+class EventPolicy
+  
+  attr_reader :current_user, :event
+
+  def initialize(current_user, event)
+    @current_user = current_user
+    @event = event
+  end
 
   def new?
-    create?
+    @current_user.role == 'admin'
   end
 
   def create?
-      user.role == 'admin' || record.user == user
+    @current_user.role == 'admin'
   end
 
-
   def update?
-      user.role == 'admin' || record.user == user
+    @current_user.role == 'admin'
   end
 
   def edit?
-    update?
+    @current_user.role == 'admin'
   end
 
   def destroy?
-      user.role == 'admin' || record.user == user
+    @current_user.role == 'admin'
   end
 end
   

@@ -31,13 +31,29 @@
  .banner {
      grid-column: 2 / span 4;
      grid-row: 1 / span 1;
-     background-color: white; 
+     background-color: black; 
+     max-height: 210px;
  }
+
+ .banner-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    height: auto;
+    max-height: 210px;
+    align: center;
+  }
 
  .left-panel {
     grid-column: 2 / span 1;
-    grid-row: 2 / span 3;
+    grid-row: 2 / span 4;
     background-color: white;
+ }
+
+ .profile-name {
+   text-align: center;
+   text-decoration: underline;
  }
 
  .main-panel {
@@ -53,8 +69,6 @@
      padding: 15px;
      margin: -15px;
      background-color: white;
-
-
  }
  /* =========================================== 
     Nav Buttons

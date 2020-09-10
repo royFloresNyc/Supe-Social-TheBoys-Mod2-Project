@@ -1,22 +1,29 @@
-class SupePolicy < ApplicationPolicy
+class SupePolicy
   
-  def create?
-    user.role == 'admin' || record.user == user
+  attr_reader :current_user, :supe
+
+  def initialize(current_user, supe)
+    @current_user = current_user
+    @supe = supe
   end
 
   def new?
-    create?
+    @current_user.role == 'admin'
+  end
+
+  def create?
+    @current_user.role == 'admin'
   end
 
   def update?
-    user.role == 'admin' || record.user == user
+    @current_user.role == 'admin'
   end
 
   def edit?
-    update?
+    @current_user.role == 'admin'
   end
 
   def destroy?
-    user.role == 'admin' || record.user == user
+    @current_user.role == 'admin'
   end
 end

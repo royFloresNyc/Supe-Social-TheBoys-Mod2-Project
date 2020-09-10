@@ -6,7 +6,7 @@ class UserEventsController < ApplicationController
 
     def create
         @user_event = UserEvent.create(attend_params)
-        redirect_to event_path(@user_event.event)
+        redirect_back fallback_location: user_home_path
     end 
 
     private

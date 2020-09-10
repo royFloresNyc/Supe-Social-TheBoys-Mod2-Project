@@ -1,21 +1,29 @@
-class ProductPolicy < ApplicationPolicy
-  def create?
-    user.role == 'admin' || record.user == user
+class ProductPolicy
+
+  attr_reader :current_user, :product
+
+  def initialize(current_user, product)
+    @current_user = current_user
+    @product = product
   end
 
   def new?
-    create?
+    @current_user.role == 'admin'
+  end
+
+  def create?
+    @current_user.role == 'admin'
   end
 
   def update?
-    user.role == 'admin' || record.user == user
+    @current_user.role == 'admin'
   end
 
   def edit?
-    update?
+    @current_user.role == 'admin'
   end
 
   def destroy?
-    user.role == 'admin' || record.user == user
+    @current_user.role == 'admin'
   end
 end

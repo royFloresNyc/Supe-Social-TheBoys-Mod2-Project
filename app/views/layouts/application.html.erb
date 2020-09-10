@@ -12,8 +12,7 @@
 
     <body>
         <div class="banner">
-            Banner here
-            
+            <img src="https://miro.medium.com/max/3840/1*EJjUIFJK_fEdDZTODOnCLA.jpeg" class="banner-img">
         </div>
         <div class="left-panel">
             <% if @current_user %>
@@ -28,12 +27,6 @@
                         <li><%= link_to "Create Event", new_event_path %></li>
                         <li><%= link_to "List Product", new_product_path %></li>
                     </ul>
-                <% else %>
-                    <ul>
-                        <% @current_user.carts.each do |cart| %>
-                        <li><%= cart.product.name %><%= button_to "Remove", cart, :method => :delete %></li>
-                        <% end %>
-                    </ul>
                 <% end %>
                 <ul class="user-nav">
                     <li><%= link_to "Logout", logout_path, method: :delete %></li>
@@ -43,10 +36,10 @@
         <div class="main-panel">
             <ul class="nav">
                 <li><%= link_to "Home", user_home_path%></li>
-                <li><%= link_to "Posts", posts_path %></li>
                 <li><%= link_to "The Seven", supes_path %></li>
                 <li><%= link_to "Merchandise", products_path %></li>
                 <li><%= link_to "Events", events_path %></li>
+                <li><%= link_to "My Cart", user_cart_path %></li>
             </ul>
             <div class="content-wrapper">
                 <%= yield %>

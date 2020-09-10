@@ -8,6 +8,6 @@ class Product < ApplicationRecord
 
 
     def self.product_sort
-        Product.all.sort_by { |product| product.price }.reverse
+        Product.all.sort_by { |product| product.price }
     end
 end
