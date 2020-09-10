@@ -43,8 +43,8 @@ class User < ApplicationRecord
     end
   end
 
-  def self.recent_comments
+  def recent_comments
     recent_comments = self.comments.sort_by { |comment| comment.created_at }.reverse
-    recent_comments.limit(3)
+    recent_comments.first(3)
   end
 end

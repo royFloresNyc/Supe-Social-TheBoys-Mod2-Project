@@ -30,7 +30,7 @@
     <% if @user.comments.any? %>
         <ul>
             <%  @user.recent_comments.each do |comment| %>
-            <li> <%= comment.content %><%= button_to 'View Post', post_path(comment.post) %> </li>
+            <li> <%= comment.content %><%= button_to 'View Post', post_path(comment.post), method: :get %> </li>
             <% end %>
         </ul>
     <% else %>
@@ -38,5 +38,5 @@
     <% end %>
 
         
-<p><%= button_to "Edit Profile", edit_user_path(@user), method: :get %> </p>
+<p><%= button_to "Edit Profile", edit_user_path(@user), :method => 'get' %> </p>
 <p><%= button_to "Logout", logout_path, method: :delete %> </p>
