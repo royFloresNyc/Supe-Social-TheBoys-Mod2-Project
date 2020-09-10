@@ -1,15 +1,22 @@
-<h1> <%= @supe.name %> </h1>
-<%= image_tag @supe.image_url, width: "600", heigh: "auto"  %><br>
-<%= @supe.bio %><br>
-<p><strong>Powers: </strong><%= @supe.powers %></p>
+<div class="profile-container">
+    <h1 class="profile-name"> <%= @supe.name %> </h1>
+    <img src="<%= @supe.image_url %>" class="supe-profile-image">
+    
+    <div class="profile-bio">
+        <em><%= @supe.bio %><br></em>
+    </div>
+    <p><strong>Powers: </strong><%= @supe.powers %></p>
 
-<% if !@current_user.following?(@supe) %>
-    <%= form_for @user_supe = UserSupe.new do |f| %>
-        <%= f.hidden_field :user_id, value: @current_user.id %>
-        <%= f.hidden_field :supe_id, value: @supe.id %>
-        <%= f.submit "Follow" %>
-    <% end %>
-<% else %>
-    <% @user_supe = UserSupe.find_by(supe_id: @supe.id, user_id: @current_user.id) %>
-    <%= button_to "Unfollow", @user_supe, :method => :delete %>
-<% end %>
+    <div class="profile-action-button">
+        <% if !@current_user.following?(@supe) %>
+            <%= form_for @user_supe = UserSupe.new do |f| %>
+                <%= f.hidden_field :user_id, value: @current_user.id %>
+                <%= f.hidden_field :supe_id, value: @supe.id %>
+                <%= f.submit "Follow" %>
+            <% end %>
+        <% else %>
+            <% @user_supe = UserSupe.find_by(supe_id: @supe.id, user_id: @current_user.id) %>
+            <%= button_to "Unfollow", @user_supe, :method => :delete %>
+        <% end %>
+    </div>
+</div>

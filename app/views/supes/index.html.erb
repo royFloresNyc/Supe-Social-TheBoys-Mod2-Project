@@ -1,22 +1,25 @@
 <h1>The Seven</h1>
 
-    <ul>
+    
     <% @supes.each do |supe| %>
-        <li>
-            <h3><%= link_to supe.name, supe_path(supe) %></h3><br>
-            <%= image_tag supe.image_url, width: "600", heigh: "auto"  %><br>
-        </li>
-
-        <% if !@current_user.following?(supe) %>
-            <%= form_for @user_supe = UserSupe.new do |f| %>
-                <%= f.hidden_field :user_id, value: @current_user.id %>
-                <%= f.hidden_field :supe_id, value: supe.id %>
-                <%= f.submit "Follow" %>
-            <% end %>
-        <% else %>
-            <% @user_supe = UserSupe.find_by(supe_id: supe.id, user_id: @current_user.id) %>
-            <%= button_to "Unfollow", @user_supe, :method => :delete %>
-        <% end %>
-
+        <div class="supe-index-container">
+            <h2 class="supe-index-name"><%= link_to supe.name, supe_path(supe) %></h2><br>
+            <p class="supe-index-description"><strong>Powers: </strong><em><%= supe.powers %></em></p>
+            <div class="index-image-cropper">
+                <img src="<%= supe.image_url %>" class="supe-index-image">
+            </div>
+            <div class="supe-index-action-button">
+                <% if !@current_user.following?(supe) %>
+                    <%= form_for @user_supe = UserSupe.new do |f| %>
+                        <%= f.hidden_field :user_id, value: @current_user.id %>
+                        <%= f.hidden_field :supe_id, value: supe.id %>
+                        <%= f.submit "Follow" %>
+                    <% end %>
+                <% else %>
+                    <% @user_supe = UserSupe.find_by(supe_id: supe.id, user_id: @current_user.id) %>
+                    <%= button_to "Unfollow", @user_supe, :method => :delete %>
+                <% end %>
+            </div>
+        </div>
     <% end %>
-    <ul>
+    
