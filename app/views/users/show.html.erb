@@ -1,13 +1,13 @@
 
 <h1 class="profile-page-name"><%= @user.username%>'s Profile Page </h1>
     <h2 class="user-section-titles"> Favorite Supes </h2>
-        <% if @user.supes.any? %>
             <% @user.supes.each do |supe| %>
-                <li class="user-page-heroes"><%= link_to supe.name, supe_path(supe) %></li>
-                <% end %>
-            <% else %>
-                <p> <%= @user.username %> hasn't favorited anySupes yet! Click "The Seven Tab" to favorite aSupe! </p>
-            <% end %>
+                <div class="index-image-cropper">
+                    <%= link_to supe_path(supe) do %>
+                        <img src="<%= supe.image_url %>" class="supe-index-image">
+                    <% end %>
+                </div>
+            <% end%>
     <h2 class="user-section-titles"> Upcoming Events for <%= @user.username %> </h2>
         <% if @user.events.any? %>
         <ul>
@@ -16,17 +16,35 @@
             <% end %>
         </ul>
         <% else %>
-            <p><%= @user.username %> hasn't signed up for anyevents yet!  Go to the events page to see listedevents! </p>
+            <p><%= @user.username %> hasn't signed up for any events yet!  Go to the events page to see listed events! </p>
         <% end %>
     <h2 class="user-section-titles"> Recent Comments by <%= @user.username %></h2>
         <% if @user.comments.any? %>
-            <ul>
-                <%  @user.recent_comments.each do |comment| %>
-                <li> <%= comment.content %><%= button_to 'ViewPost', post_path(comment.post), method: :get %></li>
-                <% end %>
-            </ul>
+            <%  @user.recent_comments.each do |comment| %>
+                <div class="comment-container">
+                    <div class="commenter-image-cropper">
+                        <%= link_to user_path(comment.user) do %>
+                            <img src="<%= comment.user.image_url %>" class="commenter-image">
+                        <% end  %>
+                    </div>
+                    <div class="comment-content-wrapper">
+                        <div class="commenter">
+                            <%= link_to comment.user.username, user_path(comment.user) %></h2>
+                        </div>
+                        <div class="comment">
+                            <p><%= comment.content %></p>
+                        </div>
+                        <div class="comment-date">
+                            <p><em><%= comment.created_at.strftime("%B %d, %Y") %></em></p>
+                        </div>
+                    </div>
+                </div>
+                <%= button_to 'ViewPost', post_path(comment.post), method: :get, :class => "view_post_button" %></li>
+            <% end %>
         <% else %>
             <p><%= @user.username %> hasn't made any commentsyet! </p>
         <% end %>
+<div class="profile-footer">
     <p class="edit-profile"><%= link_to "Edit Profile",edit_user_path(@user), :method => 'get' %> </p>
     <p class='logout'> <%= link_to "Logout", logout_path,method: :delete %> </p>
+<div>

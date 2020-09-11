@@ -1,7 +1,9 @@
  <% @current_user.feed.each do |post| %>
  <div class="post-container">
     <div class="post-profile-image-cropper">
-        <img src="<%= post.supe.image_url %>" class="supe-post-image">
+        <%= link_to supe_path(post.supe) do %>
+            <img src="<%= post.supe.image_url %>" class="supe-post-image">
+        <% end %>
     </div>
     <div class="post-header">
         <h3 class="poster-name"><%= link_to post.supe.name, supe_path(post.supe) %></h3>

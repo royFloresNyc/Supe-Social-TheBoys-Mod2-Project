@@ -7,6 +7,7 @@ class SupesController < ApplicationController
     end
 
     def show
+        @post = Post.new #declaring this to be able to create a new post from the supe show page
     end
 
     def new

@@ -1,17 +1,19 @@
 <h1 class="events-header">Events List</h1>
 
 <% @events.each do |event| %>
-    <h3><%= link_to event.title, event_path(event) %></h3>
-    <p><em>Hosted by: </em><%= event.supe.name %></p>
-    <p>Date: <%= event.date.strftime("%B %d, %Y at %T") %></p>
-    <p>Location: <%= event.location %></p>
-    <p>Cost: $<%= event.cost %></p>
+    <div class="general-container">
+        <h3><%= link_to event.title, event_path(event) %></h3>
+        <p><em>Hosted by: </em><%= event.supe.name %></p>
+        <p>Date: <%= event.date.strftime("%B %d, %Y at %T") %></p>
+        <p>Location: <%= event.location %></p>
+        <p>Cost: $<%= event.cost %></p>
 
-    <% if !@current_user.attending?(event) %>
-            <%= form_for @user_event = UserEvent.new do |f| %>
-                <%= f.hidden_field :user_id, value: @current_user.id %>
-                <%= f.hidden_field :event_id, value: event.id %>
-                <%= f.submit "Add to your Events" %>
-            <% end %>
-    <% end %>
+        <% if !@current_user.attending?(event) %>
+                <%= form_for @user_event = UserEvent.new do |f| %>
+                    <%= f.hidden_field :user_id, value: @current_user.id %>
+                    <%= f.hidden_field :event_id, value: event.id %>
+                    <%= f.submit "Add to your Events" %>
+                <% end %>
+        <% end %>
+    </div>
 <% end %>

@@ -17,13 +17,15 @@
         <div class="left-panel">
             <% if @current_user %>
                 <h1 class="profile-name"><%= @current_user.username %></h1>
-                <img src="<%= @current_user.image_url %>" class="profile-img">
+                <%= link_to user_path(@current_user) do %>
+                    <img src="<%= @current_user.image_url %>" class="profile-img">
+                <% end %>
                 <ul class="user-nav">
                     <li><%= link_to "My Profile", user_path(@current_user) %></li>
                 </ul>
                 <% if @current_user.role == "admin" %>
                     <ul class="user-nav">
-                        <li><%= link_to "Create Post", new_post_path %></li>
+                        <!--<li><%= link_to "Create Post", new_post_path %></li> -->
                         <li><%= link_to "Create Event", new_event_path %></li>
                         <li><%= link_to "List Product", new_product_path %></li>
                     </ul>

@@ -6,7 +6,9 @@
             <h2 class="supe-index-name"><%= link_to supe.name, supe_path(supe) %></h2><br>
             <p class="supe-index-description"><strong>Powers: </strong><em><%= supe.powers %></em></p>
             <div class="index-image-cropper">
-                <img src="<%= supe.image_url %>" class="supe-index-image">
+                <%= link_to supe_path(supe) do %>
+                    <img src="<%= supe.image_url %>" class="supe-index-image">
+                <% end %>
             </div>
             <div class="supe-index-action-button">
                 <% if !@current_user.following?(supe) %>

@@ -20,3 +20,54 @@
         <% end %>
     </div>
 </div>
+
+<% if @current_user.role == "admin"  %>
+    <div class="new-post-container">
+        <%= form_for @post do |f| %>
+            <%= f.hidden_field :supe_id, value: @supe.id %><br>
+            <%= f.text_area :content %><br>
+            <%= f.label "Upload a Photo/Video" %>
+            <%= f.file_field :post_file %><br>
+            <%= f.hidden_field :likes, value: 0 %>
+            <%= f.submit "Post", :class => "post-submit-button" %>
+        <% end %>
+    </div>
+<% end %>
+
+ <% @supe.posts.each do |post| %>
+ <div class="post-container">
+    <div class="post-profile-image-cropper">
+        <%= link_to supe_path(post.supe) do %>
+            <img src="<%= post.supe.image_url %>" class="supe-post-image">
+        <% end %>
+    </div>
+    <div class="post-header">
+        <h3 class="poster-name"><%= link_to post.supe.name, supe_path(post.supe) %></h3>
+        <div class="post-date">
+            <em><%= post.created_at.strftime("%B %d, %Y") %></em>
+        </div>
+    </div>
+    <p class="post-content"><%= post.content %></p>
+    
+    <% if post.has_media? %>
+        <div class="media-container">
+            <% if post.has_image? %>
+                <%= image_tag(url_for(post.post_file), :class => "post-media") %>
+            <% else %>
+                <%= video_tag(url_for(post.post_file), size: "640x360", controls: true , :class => "post-media") %>
+            <% end %>
+        </div> 
+    <% end %>   
+    
+    <div class="stats">
+        <div class="likes">
+            <%= post.likes%>
+        </div>
+        <%= button_to "Likes", post_path(post), method: :patch, params: {:likes => (post.likes + 1)}, class: "like-button" %>
+        <div class="comments">
+            <%= post.comments.count %>
+        </div>
+        <%= button_to "Comments", post_path(post), method: :get, action: :show, class: "comment-button" %>
+    </div>
+</div>
+<% end %>

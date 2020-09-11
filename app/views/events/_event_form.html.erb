@@ -1,24 +1,26 @@
-<% if flash[:errors] %>
-    <% flash[:errors].each do |error| %>
-        <p><%= error %></p>
+<div class="general-container">
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+            <p><%= error %></p>
+        <% end %>
     <% end %>
-<% end %>
 
-<%= form_for @event do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %><br>
+    <%= form_for @event do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title %><br>
 
-    <%= f.label "Hosted by: " %>
-    <%= f.collection_select :supe_id, Supe.all, :id, :name %><br>
+        <%= f.label "Hosted by: " %>
+        <%= f.collection_select :supe_id, Supe.all, :id, :name %><br>
 
-    <%= f.label :location %>
-    <%= f.text_field :location %><br>
+        <%= f.label :location %>
+        <%= f.text_field :location %><br>
 
-    <%= f.label :date %>
-    <%= f.datetime_select :date%><br>
+        <%= f.label :date %>
+        <%= f.datetime_select :date%><br>
 
-    <%= f.label :cost %>
-    <%= f.number_field :cost %><br>
+        <%= f.label :cost %>
+        <%= f.number_field :cost %><br>
 
-    <%= f.submit "Submit" %>
-<% end %>
+        <%= f.submit "Submit" %>
+    <% end %>
+</div>
