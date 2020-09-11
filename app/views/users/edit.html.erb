@@ -1,25 +1,26 @@
 <h1> Update <%= @user.username %>'s Profile here</h1>
-
-<% if flash[:my_errors] %>
-    <% flash[:my_errors].each do |msg| %>
-        <p><%= msg %></p>
+<div class="general-container">
+    <% if flash[:my_errors] %>
+        <% flash[:my_errors].each do |msg| %>
+            <p><%= msg %></p>
+        <% end %>
     <% end %>
-<% end %>
 
 
-<%= form_for @user do |f| %>
+    <%= form_for @user do |f| %>
 
-    <%= f.label :username %>
-    <%= f.text_field :username %><br>
+        <%= f.label :username %>
+        <%= f.text_field :username %><br>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %><br>
+        <%= f.label :password %>
+        <%= f.password_field :password %><br>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %><br>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %><br>
 
-    <%= f.label :image_url %>
-    <%= f.text_field :image_url %><br>
+        <%= f.label :image_url %>
+        <%= f.text_field :image_url %><br>
 
-    <%= f.submit "Save Changes"%>
-<% end %>
+        <%= f.submit "Save Changes"%>
+    <% end %>
+</div>
