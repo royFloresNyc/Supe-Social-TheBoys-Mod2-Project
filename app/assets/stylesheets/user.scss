@@ -111,7 +111,7 @@
     height: 150px;
 }
 
-.edit_user label {
+.edit_user label, .new_user label {
     display: inline-block;
     width: 190px;
     padding: 5px;
@@ -121,7 +121,12 @@
 //     width: 190px;
 // }
 
-.edit_user_buttton {
+.new_user_button {
+    margin-top: 20px;
+    margin-left: 247px;
+}
+
+.edit_user_button {
     margin-top: 20px;
     width: 120px;
 }
