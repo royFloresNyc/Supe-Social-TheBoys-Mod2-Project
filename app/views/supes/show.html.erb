@@ -34,7 +34,7 @@
     </div>
 <% end %>
 
- <% @supe.posts.each do |post| %>
+ <% @supe.posts.reverse.each do |post| %>
  <div class="post-container">
     <div class="post-profile-image-cropper">
         <%= link_to supe_path(post.supe) do %>
