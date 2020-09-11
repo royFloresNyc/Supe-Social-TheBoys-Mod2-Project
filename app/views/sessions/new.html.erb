@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "login" %>
-<div>
+<div class="login-container">
     <h3 class="login">
     <%= form_for :session, url: login_path do |f| %>
     <%= f.label :username %>
@@ -8,7 +8,7 @@
     <%= f.label :password %>
     <%= f.password_field :password %>
 
-    <%= f.submit "Log In" %>
+    <%= f.submit "Log In", :class => "login_button" %>
     <% end %>
     </h3>
     <p class="new-user">New User? <%= link_to 'Register Here', new_user_path %></p>
