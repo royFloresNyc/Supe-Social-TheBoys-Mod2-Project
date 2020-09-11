@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    after_action :verify_authorized, only: [:new, :create, :edit, :destroy]
+    after_action :verify_authorized, only: [:new, :create, :destroy]
 
     
     def index
@@ -24,7 +24,6 @@ class PostsController < ApplicationController
 
     def update
         @post = Post.find(params[:id])
-        authorize @post
         @post.update(likes: params[:likes])
         redirect_back fallback_location: user_home_path
     end 
