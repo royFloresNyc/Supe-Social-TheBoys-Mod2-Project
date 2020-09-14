@@ -27,7 +27,9 @@
         <div class="likes">
             <%= @post.likes%>
         </div>
-        <%= button_to "Likes", post_path(@post), method: :patch, params: {:likes => (@post.likes + 1)}, class: "like-button" %>
+        <%= link_to post_path(@post), method: :patch do %>
+            <img src="<%= asset_path('thumbs-up-icon.png') %>" class="like-button">
+        <% end %>
         <div class="comments">
             <%= @post.comments.count %>
         </div>

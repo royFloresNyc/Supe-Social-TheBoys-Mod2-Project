@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 
     def update
         @post = Post.find(params[:id])
-        @post.update(likes: params[:likes])
+        @post.update(likes: (@post.likes + 1))
         redirect_back fallback_location: user_home_path
     end 
 
