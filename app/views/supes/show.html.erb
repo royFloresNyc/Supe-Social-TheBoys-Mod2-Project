@@ -67,7 +67,9 @@
         <div class="comments">
             <%= post.comments.count %>
         </div>
-        <%= button_to "Comments", post_path(post), method: :get, action: :show, class: "comment-button" %>
+        <%= link_to post_path(post) do %>
+            <img src="<%= asset_path('comments-icon.png') %>" class="comment-button">
+        <% end %>
     </div>
 </div>
 <% end %>
