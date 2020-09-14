@@ -80,7 +80,8 @@
 
 .like-button {
     grid-column: 7 / span 1;
-    height: 30px
+    height: 30px;
+    opacity: 0.5;
 }
 
 .comments {
@@ -93,6 +94,7 @@
 .comment-button {
     grid-column: 9 / span 2;
     height: 30px;
+    opacity: 0.5;
 }
 
 /*===================================================
