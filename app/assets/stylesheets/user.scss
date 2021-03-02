@@ -3,104 +3,100 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .profile-page-name {
-    text-align: center;
-    padding: 5px;
-    border: 1px solid black;
-    background-color: lightgrey;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid black;
+  background-color: lightgrey;
 }
 
 .user-section-titles {
-    // text-decoration: underline;
-    border-bottom: 2px solid black;
+  // text-decoration: underline;
+  border-bottom: 2px solid black;
 }
 
-.user-page-heroes {    
-    display: block;
-    height: 33px;
-    line-height: 40px;
-    padding: 0px 30px;
-    background-color: lightgray;
-    border-radius: 5px;
-    margin-top: 4px;
-    width: fit-content;
-    text-align: left;
+.user-page-heroes {
+  display: block;
+  height: 33px;
+  line-height: 40px;
+  padding: 0px 30px;
+  background-color: lightgray;
+  border-radius: 5px;
+  margin-top: 4px;
+  width: fit-content;
+  text-align: left;
 }
 
 .user-page-events {
-    display: block;
-    height: 33px;
-    line-height: 40px;
-    padding: 0px 30px;
-    background-color: lightgray;
-    border-radius: 5px;
-    margin-top: 4px;
-    width: fit-content;
-    text-align: center;
-}
-
-.user-cart-name {
-    text-align: center;
-    text-decoration: underline;
+  display: block;
+  height: 33px;
+  line-height: 40px;
+  padding: 0px 30px;
+  background-color: lightgray;
+  border-radius: 5px;
+  margin-top: 4px;
+  width: fit-content;
+  text-align: center;
 }
 
 .user-cart-table {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    th, td {
-        border-bottom: 2px solid #c9c9c9;
-        padding: 5px;
-        text-align: center;
-      }
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  th,
+  td {
+    border-bottom: 2px solid #c9c9c9;
+    padding: 5px;
+    text-align: center;
+  }
 }
 
 .buy-merchandise {
-    display: block;
-    height: 33px;
-    line-height: 40px;
-    padding: 0px 30px;
-    background-color: lightgray;
-    border-radius: 5px;
-    margin-top: 4px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  display: block;
+  height: 33px;
+  line-height: 40px;
+  padding: 0px 30px;
+  background-color: lightgray;
+  border-radius: 5px;
+  margin-top: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .edit-profile {
-    display: block;
-    height: 33px;
-    line-height: 40px;
-    padding: 0px 30px;
-    background-color: lightgray;
-    border-radius: 5px;
-    margin-top: 4px;
-    width: fit-content;
-    text-align: center;
-    margin-left: 260px;
+  display: block;
+  height: 33px;
+  line-height: 40px;
+  padding: 0px 30px;
+  background-color: lightgray;
+  border-radius: 5px;
+  margin-top: 4px;
+  width: fit-content;
+  text-align: center;
+  margin-left: 260px;
 }
 
 .logout {
-    display: block;
-    height: 33px;
-    line-height: 40px;
-    padding: 0px 30px;
-    background-color: lightgray;
-    border-radius: 5px;
-    margin-top: 4px;
-    width: fit-content;
-    text-align: center;
-    margin-left: 275px;
+  display: block;
+  height: 33px;
+  line-height: 40px;
+  padding: 0px 30px;
+  background-color: lightgray;
+  border-radius: 5px;
+  margin-top: 4px;
+  width: fit-content;
+  text-align: center;
+  margin-left: 275px;
 }
 
 .profile-footer {
-    border-top: 2px solid black;
-    margin-top: 10px;
-    padding-top: 10px;
+  border-top: 2px solid black;
+  margin-top: 10px;
+  padding-top: 10px;
 }
 
 .view_post_button {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 // =====================================
@@ -108,25 +104,22 @@
 // ======================================
 
 .edit_user {
-    height: 150px;
+  height: 150px;
 }
 
-.edit_user label, .new_user label {
-    display: inline-block;
-    width: 190px;
-    padding: 5px;
+.edit_user label,
+.new_user label {
+  display: inline-block;
+  width: 190px;
+  padding: 5px;
 }
-
-// .edit_user input {
-//     width: 190px;
-// }
 
 .new_user_button {
-    margin-top: 20px;
-    margin-left: 247px;
+  margin-top: 20px;
+  margin-left: 247px;
 }
 
 .edit_user_button {
-    margin-top: 20px;
-    width: 120px;
+  margin-top: 20px;
+  width: 120px;
 }

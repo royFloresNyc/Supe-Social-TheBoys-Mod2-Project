@@ -1,167 +1,173 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
- .post-container {
-    background-color: lightgray;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 15px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+.post-container {
+  background-color: lightgray;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
 }
 
-.post-profile-image-cropper, .commenter-image-cropper {
-    grid-column: 1 / span 1;
-    width: 100px;
-    height: 100px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
-    border: 0.5px solid black;
+.post-profile-image-cropper,
+.commenter-image-cropper {
+  grid-column: 1 / span 1;
+  width: 80px;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 0.5px solid black;
 }
-.supe-post-image, .commenter-image {
-    display: inline;
-    margin: 0 auto;
-    margin-left: -25%;
-    height: 100%;
-    width: auto;
+.supe-post-image,
+.commenter-image {
+  display: inline;
+  margin: 0 auto;
+  margin-left: -25%;
+  height: 100%;
+  width: auto;
 }
 
 .post-header {
-    grid-column: 2 / span 5;
-    display: grid;
-    grid-template-rows: 1fr 1fr; 
-    border-bottom: 0.5px solid darkgrey;
-    height: 70px;
+  grid-column: 2 / span 6;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  border-bottom: 0.5px solid darkgrey;
+  height: 70px;
 }
 
 .poster-name {
-    grid-row: 1 / span 1;
+  grid-row: 1 / span 1;
 }
 
 .post-date {
-    grid-row: 2 / span 1;
-    font-size: 12px;
+  grid-row: 2 / span 1;
+  font-size: 12px;
 }
 .post-content {
-    display: grid;
-    grid-column: 2 / span 5;
+  display: grid;
+  grid-column: 1 / span 7;
 }
 
 .media-container {
-    grid-column: 2 / span 5;
-    width: 480px;
-    height: auto;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 0.5px solid black;
-} 
+  grid-column: 1 / span 7;
+  //   width: 480px;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 0.5px solid black;
+}
 
 .post-media {
-    width:100%; 
-    height:100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .stats {
-    grid-column: 2 / span 5;
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    border-top: 0.5px solid darkgrey;
-    padding-top: 10px;
+  grid-column: 1 / span 7;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  border-top: 0.5px solid darkgrey;
+  padding-top: 10px;
 }
 
 .likes {
-    grid-column: 6 / span 1;
-    text-align: right;
-    padding-right: 5px;
-    padding-top: 8px;
+  grid-column: 6 / span 1;
+  text-align: right;
+  padding-right: 5px;
+  padding-top: 8px;
 }
 
 .like-button {
-    grid-column: 7 / span 1;
-    height: 30px;
-    opacity: 0.5;
+  grid-column: 7 / span 1;
+  height: 30px;
+  opacity: 0.5;
 }
 
 .comments {
-    grid-column: 8 / span 1;
-    text-align: right;
-    padding-right: 5px;
-    padding-top: 8px;
+  grid-column: 8 / span 1;
+  text-align: right;
+  padding-right: 5px;
+  padding-top: 8px;
 }
 
 .comment-button {
-    grid-column: 9 / span 2;
-    height: 30px;
-    opacity: 0.5;
+  grid-column: 9 / span 2;
+  height: 30px;
+  opacity: 0.5;
 }
 
 /*===================================================
  New Post 
 =================================================== */
-.new-post-container, .commment_container {
-    background-color: lightgray;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 15px;
-    text-align: center;
+.new-post-container,
+.commment_container {
+  background-color: lightgray;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
+  text-align: center;
 }
 
-#post_content, #comment_content {
-    width: 100%;
-    height: 60px;
-    resize: none;
-    border: 1px solid #04586D;
-    outline: none;
-    border-radius: 5px;
-    box-sizing: border-box;
-    padding: 12px 20px;
-    font-size: 18px;
+#post_content,
+#comment_content {
+  width: 100%;
+  height: 60px;
+  resize: none;
+  border: 1px solid #04586d;
+  outline: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  font-size: 18px;
 }
 
-.post-submit-button, .submit_comment {
-    width: 100px;
-    height: 30px;
-    margin-left: 480px;
+.post-submit-button,
+.submit_comment {
+  width: 100px;
+  height: 30px;
+  margin-left: 480px;
 }
 /*===================================================
  Comment
 =================================================== */
 
 .comment-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    background-color: lightgray;
-    border-radius: 10px;
-    height: 105px;
-    margin: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  background-color: lightgray;
+  border-radius: 10px;
+  height: 105px;
+  margin: 15px;
 }
 
 .comment-content-wrapper {
-    grid-column: 2 / span 5;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    height: 115px;
-    margin-left: 10px;
-    margin-right: 20px;
+  grid-column: 2 / span 5;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 115px;
+  margin-left: 10px;
+  margin-right: 20px;
 }
 
 .commenter {
-    grid-row: 1 / span 1;
-    border-bottom: 1px solid darkgrey;
-    font-size: 20px;
-    font-weight: bold;
-    align-self: end;
+  grid-row: 1 / span 1;
+  border-bottom: 1px solid darkgrey;
+  font-size: 20px;
+  font-weight: bold;
+  align-self: end;
 }
 
 .comment {
-    grid-row: 3 / span 1;
+  grid-row: 3 / span 1;
 }
 
 .comment-date {
-    grid-row: 2 / span 1;
-    border-top: 1px solid darkgrey;
-    font-size: 12px;
+  grid-row: 2 / span 1;
+  border-top: 1px solid darkgrey;
+  font-size: 12px;
 }

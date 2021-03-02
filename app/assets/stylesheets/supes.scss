@@ -4,56 +4,60 @@
 /* =========================================== 
     Supe index
  ==============================================*/
- .supe-index-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    background-color: lightgray;
-    border-radius: 10px;
-    height: 158px;
-    margin: 15px;
+.supe-index-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  background-color: lightgray;
+  border-radius: 10px;
+  height: 158px;
+  margin: 15px;
 }
-.index-image-cropper{
-   display: inline-block;
-   grid-column: 1 / span 1;
-   grid-row: 1 / span 3;
-   width: 150px;
-   height: 150px;
-   position: relative;
-   overflow: hidden;
-   border-radius: 50%;
-   border: 0.5px solid black;
-   margin: 3px;
+.index-image-cropper {
+  display: inline-block;
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 3;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 0.5px solid black;
+  margin: 3px;
 }
 
 .supe-index-image {
-   display: inline;
-   margin: 0 auto;
-   margin-left: -25%;
-   height: 100%;
-   width: auto;
+  display: inline;
+  margin: 0 auto;
+  margin-left: -25%;
+  height: 100%;
+  width: auto;
 }
 
 .supe-index-name {
-    display: grid;
-    grid-column: 2 / span 2;
-    grid-row: 1 / span 1;
-    margin-bottom: 0px;
+  display: grid;
+  grid-column: 2 / span 2;
+  grid-row: 1 / span 1;
+  margin-bottom: 0px;
 }
 
 .supe-index-description {
-    display: grid;
-    grid-column: 2 / span 2;
-    grid-row: 2 / span 1;
-    margin-bottom: 0px;
+  display: grid;
+  grid-column: 2 / span 2;
+  grid-row: 2 / span 1;
+  margin-bottom: 0px;
 }
 
 .supe-index-action-button {
-    display: grid;
-    grid-column: 2 / span 2;
-    grid-row: 3 / span 1;
-    text-align: right;
-    padding-right: 50px;
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 1;
+  text-align: right;
+  padding-top: 10px;
+  padding-right: 40px;
+  input[type="submit"] {
+    padding: 5px;
+    width: 100px;
+  }
 }
 
 /* =========================================== 
@@ -61,24 +65,23 @@
 ==============================================*/
 
 .profile-container {
-    background-color: lightgray;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 15px;
+  background-color: lightgray;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
 }
 
 .supe-profile-image {
-    width: 575px;
-    border-radius: 10px;
+  width: 575px;
+  border-radius: 10px;
 }
 .profile-bio {
-    border-bottom: 1px solid black;
-    padding-top: 10px;
-    padding-bottom: 5px;
-   
+  border-bottom: 1px solid black;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 
 .profile-action-button {
-   text-align: right;
-   padding-right: 25px;
+  text-align: right;
+  padding-right: 25px;
 }
