@@ -19,6 +19,7 @@
   text-align: center;
   margin: 9px;
   border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   .product-image {
     aspect-ratio: 10 / 8;
     width: 100%;
@@ -31,12 +32,15 @@
   }
   .price {
     text-align: center;
+    font-weight: bold;
+    color: #04586d;
   }
 
   input[type="submit"] {
     padding: 5px;
     width: 100px;
     margin-bottom: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 }
 

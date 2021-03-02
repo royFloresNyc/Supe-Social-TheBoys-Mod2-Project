@@ -5,13 +5,15 @@
 .page-header {
   text-align: center;
   padding: 5px;
-  border: 1px solid black;
+  border: 1px solid darkgray;
   background-color: lightgrey;
 }
 
 .event-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  border: 1px solid darkgray;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   .event-details {
     grid-column: 1 / span 1;
     .btn-holder {
@@ -19,6 +21,8 @@
       text-align: center;
       .btn-add-event {
         padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
       }
     }
   }

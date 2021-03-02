@@ -9,9 +9,11 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   background-color: lightgray;
+  border: 1px solid darkgray;
   border-radius: 10px;
   height: 158px;
   margin: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .index-image-cropper {
   display: inline-block;
@@ -57,6 +59,7 @@
   input[type="submit"] {
     padding: 5px;
     width: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 }
 
