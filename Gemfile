@@ -26,6 +26,9 @@ gem 'binding_of_caller'
 gem 'pundit'
 gem 'rspec'
 
+# Add bootstrap for styling
+gem 'bootstrap-sass'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

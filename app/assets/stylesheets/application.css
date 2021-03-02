@@ -13,136 +13,130 @@
  *= require_tree .
  *= require_self
  */
- * {
-    font-family: 'Kumbh Sans', sans-serif;
- }
+* {
+  font-family: "Kumbh Sans", sans-serif;
+}
 
- body {
-     position: relative;
-     margin: auto;
-     width: 1366px;
-     height: 748px;
-     display: grid;
-     grid-template-columns: repeat(6, 1fr);
-     grid-template-rows: repeat(4, 1fr);
-     grid-gap: 1rem;
- }
+body {
+  position: relative;
+  margin: auto;
+  width: 1366px;
+  height: 748px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
 
- .banner {
-     grid-column: 2 / span 4;
-     grid-row: 1 / span 1;
-     background-color: black; 
-     max-height: 210px;
- }
+.banner {
+  grid-column: 2 / span 4;
+  grid-row: 1 / span 1;
+  background-color: black;
+  max-height: 210px;
+}
 
- .banner-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: auto;
-    height: auto;
-    max-height: 210px;
-    align: center;
-  }
+.banner-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  height: auto;
+  max-height: 210px;
+  align-items: center;
+}
 
- .left-panel {
-    grid-column: 2 / span 1;
-    grid-row: 2 / span 4;
-    background-color: white;
- }
+.left-panel {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 4;
+  background-color: white;
+}
 
- .profile-name {
-   text-align: center;
-   background-color: lightgrey;
-   padding: 10px;
-   border-top-right-radius: 15px;
- }
+.profile-name {
+  text-align: center;
+  background-color: lightgrey;
+  padding: 10px;
+  border-top-right-radius: 15px;
+}
 
- .main-panel {
-     grid-column: 3 / span 3;
-     grid-row: 2 / span 4;
-     background-color: white;
-     padding: 15px;
- }
+.main-panel {
+  grid-column: 3 / span 3;
+  grid-row: 2 / span 4;
+  background-color: white;
+  padding: 15px;
+}
 
- .content-wrapper {
-     overflow: scroll;
-     width: 100%;
-     padding: 15px;
-     margin: -15px;
-     background-color: white;
- }
- /* =========================================== 
+.content-wrapper {
+  overflow: scroll;
+  width: 100%;
+  padding: 15px;
+  margin: -15px;
+  background-color: white;
+}
+/* =========================================== 
     Nav Buttons
  ==============================================*/
 
+ul.nav {
+  height: 40px;
+  margin-bottom: 0px;
+  padding-bottom: 5px;
+  border-bottom: 0.5px solid black;
+}
 
- ul.nav {
-    height: 40px;
-    margin-bottom: 0px;
-    padding-bottom: 5px;
-    border-bottom: 0.5px solid black;
+ul.nav li {
+  line-height: 40px;
+  display: inline-block;
+  padding: 0px 20px;
+  background-color: lightgray;
+  border-top-right-radius: 10px;
+  margin-left: -40px;
+  margin-right: 38px;
+}
 
-   }
-   
-   ul.nav li {
-    line-height: 40px;
-    display: inline-block;
-    padding: 0px 20px;
-    background-color: lightgray;
-    border-top-right-radius: 10px;
-    margin-left: -40px;
-    margin-right: 38px;
-  }
- 
-  ul.nav li:hover {
-   background-color: white;
-   transition: 0.5s;
-  }
+ul.nav li:hover {
+  background-color: white;
+  transition: 0.5s;
+}
 
-  ul.user-nav li {
-    display: block;
-    height: 33px;
-    line-height: 40px;
-    padding: 0px 30px;
-    background-color: lightgray;
-    border-radius: 5px;
-    margin-top: 4px;
-    margin-left: -16px;
-    margin-right: 26px;
-    text-align: center;
-  }
-  ul.user-nav li:hover {
-    background-color: white;
-    transition: 0.5s;
-   }
- 
-  a {
-    text-decoration: none;
-    color: black;
-  }
-  a:hover {
-    color: #04586D;
-  }
+ul.user-nav li {
+  display: block;
+  height: 33px;
+  line-height: 40px;
+  padding: 0px 30px;
+  background-color: lightgray;
+  border-radius: 5px;
+  margin-top: 4px;
+  margin-left: -16px;
+  margin-right: 26px;
+  text-align: center;
+}
+ul.user-nav li:hover {
+  background-color: white;
+  transition: 0.5s;
+}
 
-  .profile-img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: lightgrey;
-    border: 0.5px solid black;
-    margin-left: 6px;
-  }
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: #04586d;
+}
 
-  .general-container {
-    background-color: lightgray;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 15px;
-  }
+.profile-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: lightgrey;
+  border: 0.5px solid black;
+  margin-left: 6px;
+}
 
-
-
-
+.general-container {
+  background-color: lightgray;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
+}
