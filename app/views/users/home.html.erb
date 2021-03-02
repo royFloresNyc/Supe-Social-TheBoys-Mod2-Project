@@ -26,16 +26,16 @@
     <div class="stats">
         <div class="likes">
             <%= post.likes%>
+            <%= link_to post_path(post), method: :patch do %>
+                <img src="<%= asset_path('thumbs-up-icon.png') %>" class="like-button">
+            <% end %>
         </div>
-        <%= link_to post_path(post), method: :patch do %>
-            <img src="<%= asset_path('thumbs-up-icon.png') %>" class="like-button">
-        <% end %>
         <div class="comments">
             <%= post.comments.count %>
+            <%= link_to post_path(post) do %>
+                <img src="<%= asset_path('comments-icon.png') %>" class="comment-button">
+            <% end %>
         </div>
-        <%= link_to post_path(post) do %>
-            <img src="<%= asset_path('comments-icon.png') %>" class="comment-button">
-        <% end %>
     </div>
 </div>
 <% end %>
