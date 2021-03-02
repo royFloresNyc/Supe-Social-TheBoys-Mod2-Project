@@ -18,7 +18,7 @@
             <% if @post.has_image? %>
                 <%= image_tag(url_for(@post.post_file), :class => "post-media") %>
             <% else %>
-                <%= video_tag(url_for(@post.post_file), size: "640x360", controls: true , :class => "post-media") %>
+                <%= video_tag(url_for(@post.post_file), controls: true , :class => "post-media") %>
             <% end %>
         </div> 
     <% end %>   

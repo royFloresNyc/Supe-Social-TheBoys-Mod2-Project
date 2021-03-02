@@ -1,27 +1,21 @@
-<h1 class="products-index-name"> Buy Stuff from your favorite Hero!</h1>
-<table class="merchandise-page">
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Add to Cart</th>
-    </tr>
-    <%  sorted = Product.product_sort %>
-    <%  sorted.each do |product| %>
-    <tr>
-        <td id="product-name"><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td id="price">$<%= product.price %></td>
-        <td>
-            <%= form_for @cart = Cart.new do |f| %>
+<h1 class="page-header"> Buy Stuff from your favorite Hero!</h1>
+<%  sorted = Product.product_sort %>
+<%  sorted.each do |product| %>
+    <div class="product-card">
+        <% if product.image_url%>
+            <%= image_tag product.image_url, :class => "product-image"%>
+        <% end %>
+        <h3 class="product-name"><%= product.name %></h3>
+        <p><%= product.description %></p>
+        <p class="price">$ <%= product.price%></p>
+        <%= form_for @cart = Cart.new do |f| %>
             <%= f.hidden_field :user_id, value: @current_user.id %>
             <%= f.hidden_field :product_id, value: product.id %>
             <%= f.submit "Add to Cart" %>
-            <% end %>
-        </td>
-    </tr>
-    <% end %>
-</table>
-    <% if policy(:product).new?%>
+        <% end %>
+    </div>
+<% end %>
+
+<% if policy(:product).new?%>
     <p class="add-product-to-store"><%= link_to "Add New Product to Store", new_product_path, method: :get %></p>
-    <% end %>
+<% end %>
