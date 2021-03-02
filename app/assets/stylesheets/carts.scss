@@ -1,3 +1,14 @@
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.item-remove {
+  font-style: italic;
+  color: lightgrey;
+  font-size: small;
+}
+
+.cart-total {
+  text-align: end;
+  margin-right: 65px;
+}
