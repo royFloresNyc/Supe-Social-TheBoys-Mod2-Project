@@ -10,42 +10,44 @@
     </head>
 
     <body>
-        <div class="banner">
-            <img src="https://miro.medium.com/max/3840/1*EJjUIFJK_fEdDZTODOnCLA.jpeg" class="banner-img">
-        </div>
-        <div class="left-panel">
-            <% if @current_user %>
-                <h1 class="profile-name"><%= @current_user.username %></h1>
-                <%= link_to user_path(@current_user) do %>
-                    <img src="<%= @current_user.image_url %>" class="profile-img">
-                <% end %>
-                <ul class="user-nav">
-                    <li><%= link_to "My Profile", user_path(@current_user) %></li>
-                </ul>
-                <% if @current_user.role == "admin" %>
-                    <ul class="user-nav">
-                        <!--<li><%= link_to "Create Post", new_post_path %></li> -->
-                        <li><%= link_to "Create Event", new_event_path %></li>
-                        <li><%= link_to "List Product", new_product_path %></li>
-                    </ul>
-                <% end %>
-                <ul class="user-nav">
-                    <li><%= link_to "Logout", logout_path, method: :delete %></li>
-                </ul>
-            <% end %>
-        </div>
-        <div class="main-panel">
-            <% if @current_user %>
-                <ul class="nav">
-                    <li><%= link_to "Home", user_home_path%></li>
-                    <li><%= link_to "The Seven", supes_path %></li>
-                    <li><%= link_to "Merchandise", products_path %></li>
-                    <li><%= link_to "Events", events_path %></li>
-                    <li><%= link_to "My Cart", user_cart_path %></li>
-                </ul>
-            <% end %>
-            <div class="content-wrapper">
-                <%= yield %>
+        <div class="container px-5">
+            <div class="row banner mx-5">
+                <img src="<%= asset_path('supe-social-logo.png') %>" class="banner-img">
+            </div>
+            <div class="row mt-3 mx-5">
+                <div class="col-3 left-panel">
+                    <% if @current_user %>
+                        <div class="bg-light p-2">
+                        <h1 class="profile-name"><%= @current_user.username %></h1>
+                        <%= link_to user_path(@current_user) do %>
+                            <img src="<%= @current_user.image_url %>" class="profile-img">
+                        <% end %>
+                        <ul class="user-nav">
+                            <li><%= link_to "My Profile", user_path(@current_user) %></li>
+                            <li><%= link_to "Home", user_home_path%></li>
+                            <li><%= link_to "The Seven", supes_path %></li>
+                            <li><%= link_to "Merchandise", products_path %></li>
+                            <li><%= link_to "Events", events_path %></li>
+                            <li><%= link_to "My Cart", user_cart_path %></li>
+                        </ul>
+                        <% if @current_user.role == "admin" %>
+                            <ul class="user-nav">
+                                <!--<li><%= link_to "Create Post", new_post_path %></li> -->
+                                <li><%= link_to "Create Event", new_event_path %></li>
+                                <li><%= link_to "List Product", new_product_path %></li>
+                            </ul>
+                        <% end %>
+                        <ul class="user-nav">
+                            <li><%= link_to "Logout", logout_path, method: :delete %></li>
+                        </ul>
+                    <% end %>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="p-2 bg-light">
+                    <%= yield %>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

@@ -27,7 +27,7 @@ gem 'pundit'
 gem 'rspec'
 
 # Add bootstrap for styling
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 5.0.0.beta2'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

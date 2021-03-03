@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
 * {
   font-family: "Kumbh Sans", sans-serif;
 }
@@ -20,84 +22,44 @@
 body {
   position: relative;
   margin: auto;
-  width: 1366px;
-  height: 748px;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-gap: 1rem;
+  background: transparent;
 }
 
 .banner {
-  grid-column: 2 / span 4;
-  grid-row: 1 / span 1;
-  background-color: black;
-  max-height: 210px;
+  max-height: 300px;
+  display: flex;
+  justify-content: start;
+  background: url(asset_path("banner-background.jpg"));
+  background-size: cover;
+  background-position: right top;
   box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.2),
     0 15px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .banner-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: auto;
-  height: auto;
-  max-height: 210px;
-  align-items: center;
+  height: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  object-position: 0% 0%;
 }
 
 .left-panel {
-  grid-column: 2 / span 1;
-  grid-row: 2 / span 4;
-  background-color: white;
-  box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.2),
-    0 15px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
 }
 
 .profile-name {
   text-align: center;
   background-color: lightgrey;
-  padding: 10px;
-  border-top-right-radius: 15px;
 }
 
 .main-panel {
-  grid-column: 3 / span 3;
-  grid-row: 2 / span 4;
-  background-color: white;
+  background-color: #f8f4f4;
   padding: 15px;
-  box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.2),
-    0 15px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.content-wrapper {
-  overflow: scroll;
-  width: 100%;
-  padding: 15px;
-  margin: -15px;
-  background-color: white;
-}
 /* =========================================== 
     Nav Buttons
  ==============================================*/
-
-ul.nav {
-  height: 40px;
-  margin-bottom: 0px;
-  padding-bottom: 5px;
-  border-bottom: 0.5px solid black;
-}
-
-ul.nav li {
-  line-height: 40px;
-  display: inline-block;
-  padding: 0px 20px;
-  background-color: lightgray;
-  border-top-right-radius: 10px;
-  margin-left: -40px;
-  margin-right: 38px;
-}
 
 ul.nav li:hover {
   background-color: white;
@@ -105,15 +67,16 @@ ul.nav li:hover {
 }
 
 ul.user-nav li {
-  display: block;
+  display: inline-block;
   height: 33px;
+  width: 100%;
   line-height: 40px;
-  padding: 0px 30px;
+  //padding: 0px 30px;
   background-color: lightgray;
   border-radius: 5px;
   margin-top: 4px;
-  margin-left: -16px;
-  margin-right: 26px;
+  margin-left: -30px;
+  //margin-right: 26px;
   text-align: center;
 }
 ul.user-nav li:hover {
@@ -127,6 +90,7 @@ a {
 }
 a:hover {
   color: #04586d;
+  color: orangered;
 }
 
 .profile-img {
@@ -138,6 +102,7 @@ a:hover {
   background-color: lightgrey;
   border: 0.5px solid black;
   margin-left: 6px;
+  align-self: center;
 }
 
 .general-container {

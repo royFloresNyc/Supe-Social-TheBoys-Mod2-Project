@@ -28,6 +28,9 @@ html {
   padding: 15px;
   margin-top: 10vh;
   text-align: center;
+  input {
+    padding: 4px;
+  }
 }
 
 .login_button {
@@ -41,5 +44,5 @@ a {
 }
 
 a:hover {
-  color: #04586d;
+  color: orangered;
 }
