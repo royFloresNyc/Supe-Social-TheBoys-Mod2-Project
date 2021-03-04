@@ -85,13 +85,6 @@ p7 = Product.create(name: "Stun Gun 3000 by Stormfront", description: "Electrocu
 p8 = Product.create(name: "Compound V", description: "This isn't supposed to be up here.", price: 1000000000000)
 
 
-Cart.create(user_id: russ.id, product_id: p1.id)
-Cart.create(user_id: russ.id, product_id: p7.id)
-Cart.create(user_id: russ.id, product_id: p3.id)
-Cart.create(user_id: russ.id, product_id: p5.id)
-Cart.create(user_id: hughie.id, product_id: p2.id)
-Cart.create(user_id: hughie.id, product_id: p8.id)
-
 Event.create(title: "Swim with The Deep!", location: "Greepoint, Brooklyn", date: "2021-02-03 06", cost: 100, supe_id: Supe.last.id)
 Event.create(title: "Hanging with Homelander", location: "Yankee Stadium, Bronx, NY", date: "2021-07-04 13", cost: 400, supe_id: Supe.first.id)
 Event.create(title: "Tea Time with Black Noir", location: "Brooklyn Botanical Garden", date: "2021-06-21 16", cost: 300, supe_id: Supe.second_to_last.id)

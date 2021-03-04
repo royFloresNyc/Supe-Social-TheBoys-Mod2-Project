@@ -29,11 +29,19 @@ class User < ApplicationRecord
         Post.all.filter {|post| self.supes.include?(post.supe)}.reverse
     end 
 
+    def cart
+        if self.carts.count > 0
+            self.carts.last
+        else
+            Cart.create(user: self)
+        end
+    end 
+
     enum role: [:member, :admin]
 
     after_initialize do
         if self.new_record?
-        self.role ||= :member
+            self.role ||= :member
         end
     end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_055411) do
+ActiveRecord::Schema.define(version: 2021_03_03_235511) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,11 +33,15 @@ ActiveRecord::Schema.define(version: 2021_03_02_055411) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "carts", force: :cascade do |t|
-    t.integer "user_id"
+  create_table "cart_products", force: :cascade do |t|
+    t.integer "cart_id"
     t.integer "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer "user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -75,6 +79,19 @@ ActiveRecord::Schema.define(version: 2021_03_02_055411) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_url"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.string "email"
+    t.integer "amount"
+    t.string "description"
+    t.string "currency"
+    t.string "customer_id"
+    t.string "card"
+    t.string "product_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "uuid"
   end
 
   create_table "supes", force: :cascade do |t|

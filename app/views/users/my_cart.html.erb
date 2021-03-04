@@ -1,5 +1,5 @@
 <h1 class="page-header"><%= @current_user.username %>'s Cart </h1>
-    <% if @current_user.carts %>
+    <% if @current_user.cart.has_items? %>
     <table class="user-cart-table">
         <tr>
             <th>Name</th>
@@ -8,14 +8,15 @@
             <th>Price</th>
         </tr>
         <tr>
-            <% @current_user.carts.each do |cart| %>
-            <td><%= cart.product.name %></td>
-            <td><%= cart.product.description %></td>
-            <td class="item-remove"><%= link_to "Remove", cart, :method => :delete %></td>
-            <td>$<%= cart.product.price %></td>
+            <% @current_user.cart.products.each do |product| %>
+                <% cart_product = CartProduct.find_by(cart_id: @current_user.cart.id, product_id: product.id) %>
+                <td><%= product.name %></td>
+                <td><%= product.description %></td>
+                <td class="item-remove"><%= link_to "Remove", cart_product, :method => :delete %></td>
+                <td>$<%= product.price %></td>
         </tr>
         <% end %>
     </table>
-        <h3 class="cart-total">Cart Total | $<%= @current_user.carts.sum { |cart| cart.product.price }%></h3>
+        <h3 class="cart-total">Cart Total | $<%= @current_user.cart.products.sum { |product| product.price }%></h3>
     <% end %>
     <h3 class="buy-merchandise"><%= link_to "Back to Shop!", products_path %></h3>
