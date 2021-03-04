@@ -29,6 +29,12 @@ gem 'rspec'
 # Add bootstrap for styling
 gem 'bootstrap', '~> 5.0.0.beta2'
 
+# stripe for taking payments
+gem 'stripe', :git =>'https://github.com/stripe/stripe-ruby'
+
+# Figaro to securely configure App
+gem 'figaro'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

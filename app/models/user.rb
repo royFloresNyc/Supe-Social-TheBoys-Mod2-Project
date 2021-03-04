@@ -30,10 +30,10 @@ class User < ApplicationRecord
     end 
 
     def cart
-        if self.carts.count > 0
-            self.carts.last
-        else
+        if self.carts.count == 0 || self.carts.last.purchase
             Cart.create(user: self)
+        else
+            self.carts.last
         end
     end 
 

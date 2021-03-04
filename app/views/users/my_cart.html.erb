@@ -1,22 +1,62 @@
 <h1 class="page-header"><%= @current_user.username %>'s Cart </h1>
     <% if @current_user.cart.has_items? %>
-    <table class="user-cart-table">
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Edit Item</th>
-            <th>Price</th>
-        </tr>
-        <tr>
-            <% @current_user.cart.products.each do |product| %>
-                <% cart_product = CartProduct.find_by(cart_id: @current_user.cart.id, product_id: product.id) %>
-                <td><%= product.name %></td>
-                <td><%= product.description %></td>
-                <td class="item-remove"><%= link_to "Remove", cart_product, :method => :delete %></td>
-                <td>$<%= product.price %></td>
-        </tr>
+        <table class="user-cart-table">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Edit Item</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <% @current_user.cart.products.each do |product| %>
+                    <% cart_product = CartProduct.find_by(cart_id: @current_user.cart.id, product_id: product.id) %>
+                    <td><%= product.name %></td>
+                    <td><%= product.description %></td>
+                    <td class="item-remove"><%= link_to "Remove", cart_product, :method => :delete %></td>
+                    <td>$<%= product.price %></td>
+            </tr>
+            <% end %>
+        </table>
+        <% @total = @current_user.cart.products.sum { |product| product.price }%>
+            <h3 class="cart-total">Cart Total | $<%= @total %></h3>
+        
+        <h3 class="buy-merchandise"><%= link_to "Back to Shop!", products_path %></h3>
+
+        <%= form_tag charges_path, id:'chargeForm' do %>
+            <% if flash[:error].present? %>
+                <div id="error_explanation">
+                    <p><%= flash[:error] %></p>
+                </div>
+            <% end %>
+            <%=hidden_field_tag 'stripeToken'%>
+            <%=hidden_field_tag 'stripeEmail'%>
+            <%=hidden_field_tag 'amount', @total * 100%>
+            <%=hidden_field_tag 'customer_name' %>
+            <%=hidden_field_tag 'shipping_address' %>
+            <%=hidden_field_tag 'cart_id', @current_user.cart.id %>
+            <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Buy this!</button>
+            
+            <script>
+                var handler = StripeCheckout.configure({
+                    key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+                    billingAddress: true,
+                    shippingAddress: true,
+                    token: function(token, arg) {
+                        document.getElementById("stripeToken").value = token.id;
+                        document.getElementById("stripeEmail").value = token.email;
+                        document.getElementById("customer_name").value = arg.shipping_name;
+                        document.getElementById("shipping_address").value = `${arg.shipping_address_line1}, ${arg.shipping_address_city}, ${arg.shipping_address_state} ${arg.shipping_address_zip}`;
+                        document.getElementById("chargeForm").submit();
+                    }
+                });
+                document.getElementById('btn-buy').addEventListener('click', function(e) {
+                    handler.open({
+                        name: 'Purchase Total:',
+                        amount: document.getElementById('amount'),
+                        description: `$ ${amount.value / 100}`
+                    });
+                    e.preventDefault();
+                })
+            </script>
         <% end %>
-    </table>
-        <h3 class="cart-total">Cart Total | $<%= @current_user.cart.products.sum { |product| product.price }%></h3>
     <% end %>
-    <h3 class="buy-merchandise"><%= link_to "Back to Shop!", products_path %></h3>
