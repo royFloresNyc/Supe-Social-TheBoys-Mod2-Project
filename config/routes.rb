@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/home', to: 'users#home', as: 'user_home'
   get '/cart', to: 'users#my_cart', as: 'user_cart'
   post '/comments', to: 'comments#create'
-  get '/login', to: 'sessions#new', as: 'new_login'
-  post '/login', to: 'sessions#create', as: 'login'
+  get '/', to: 'sessions#new', as: 'new_login'
+  post '/', to: 'sessions#create', as: 'login'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 end
