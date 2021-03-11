@@ -1,0 +1,8 @@
+<div>
+    <p>Your purchase is complete. We hope you enjoy it!</p>
+    <p>Purchase #: <%= @purchase.uuid %></p>
+        
+    <%= link_to @purchase do %>
+    <button type="button" class="btn btn-success btn-xs">DOWNLOAD RECEIPT</button>
+    <% end %>
+</div>

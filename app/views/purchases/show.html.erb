@@ -1,24 +1,21 @@
-<section id="content-receipt" class="clearfix">
-    <div id="receipt-container">
-    <div class="dotmatrix left"></div>
-    <div id="receipt-content">
-        <h4 id="receipt-title">Thank You!</h4>
-        <p><strong>RECEIPT</strong></p>
-        <div id="receipt-details" class="row clearfix">
-        <div class="col-sm-8 receipt-left">
-            <p><strong class="font-weight-heavy">Your Product</strong><br/> <span class="font-weight-light">What you sold</span></p>
-        </div>
-        <div class="col-sm-4">
-            $4.99
-        </div>
-        </div>
+<p>Customer Name: <%= @purchase.customer_name %></p>
+<p>Shipping_address: <%= @purchase.shipping_address %> </p>
 
-        <button type="button" class="btn btn-success btn-xs">DOWNLOAD RECEIPT</button>
-        <footer id="receipt-footer">
-        <small>Your purchase is complete. We hope you enjoy it!</small>
-        </footer>
-    </div>
-    <div class="dotmatrix right"></div>
-    </div>
-    <div id="receipt-shadow"></div>
-</section>
+<p>Purchase #: <%= @purchase.uuid %></p>
+<table class="user-cart-table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <% @purchase.cart.products.each do |product| %>
+            <td><%= product.name %></td>
+            <td><%= product.description %></td>
+            <td>$<%= product.price %></td>
+        <% end %>
+    </tr>
+
+</table>
+<h3 class="cart-total">Cart Total | $<%= number_to_currency(@purchase.amount) %></h3>
+        

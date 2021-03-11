@@ -20,7 +20,7 @@ class ChargesController < ApplicationController
         customer_email: params[:stripeEmail], shipping_address: params[:shipping_address], card: params[:stripeToken],
         amount: params[:amount], currency: charge.currency, uuid: SecureRandom.uuid)
 
-    redirect_to purchase 
+    redirect_to confirmation_path 
     
     rescue Stripe::CardError => e
         flash[:error] = e.message

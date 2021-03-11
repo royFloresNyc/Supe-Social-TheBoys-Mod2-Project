@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get '/', to: 'sessions#new', as: 'new_login'
   post '/', to: 'sessions#create', as: 'login'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
+  get '/confirmation', to: 'purchases#confirmation', as: 'confirmation'
 end
