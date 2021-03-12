@@ -1,11 +1,12 @@
 class PurchasesController < ApplicationController
-    before_action :find_event, except: [:index]
+    before_action :find_purchase, except: [:index]
 
     def index
         @purchases = Purchase.all
     end 
 
     def show
+        
     end 
 
     def confirmation
@@ -14,6 +15,6 @@ class PurchasesController < ApplicationController
     private
 
     def find_purchase
-        @purchase = @purchase = Purchase.find_by_uuid(params[:id])
+        @purchase = Purchase.find_by_uuid(params[:id])
     end 
 end

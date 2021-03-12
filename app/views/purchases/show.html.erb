@@ -8,14 +8,14 @@
         <th>Description</th>
         <th>Price</th>
     </tr>
-    <tr>
-        <% @purchase.cart.products.each do |product| %>
+    <% @purchase.cart.products.each do |product| %>
+        <tr>
             <td><%= product.name %></td>
             <td><%= product.description %></td>
             <td>$<%= product.price %></td>
-        <% end %>
-    </tr>
+        </tr>
+    <% end %>
 
 </table>
-<h3 class="cart-total">Cart Total | $<%= number_to_currency(@purchase.amount) %></h3>
+<h3 class="cart-total">Purchase Total | <%= number_to_currency(@purchase.amount) %></h3>
         
