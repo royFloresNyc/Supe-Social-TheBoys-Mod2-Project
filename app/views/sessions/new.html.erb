@@ -1,6 +1,12 @@
 <%= stylesheet_link_tag "login" %>
 <img src="<%= asset_path('supe-social-logo.png') %>" class="supe-social-logo">
+
 <div class="login-container">
+
+    <% if flash[:error] %>
+        <p class="flash-error"><%= flash[:error] %></p>
+    <% end %>
+
     <h3 class="login">
     <%= form_for :session, url: login_path do |f| %>
     <%= f.label :username %>
